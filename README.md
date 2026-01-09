@@ -16,6 +16,7 @@ cd HarmonyDataBase
 ```
 ### Configuración y compilación
 ```bash
-cmake -S . -B build \-DCMAKE_TOOLCHAIN_FILE=$(vcpkg env --get-toolchain)
+vcpkg install
+cmake -S . -B build
 cmake --build build
 ```
