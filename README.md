@@ -1,9 +1,8 @@
 # HarmonyDataBase
 Base de datos musical que recopila etiquetas id3 de archivos MP3 y  permite editar ciertos datos de las canciones
 
-### Requerimientos
-**vcpkg**
-- Debe estar instalado y accesible desde cualquier terminal, es decir, agregado al PATH.
+### Requerimientos y dependencias
+[TagLib](https://github.com/taglib/taglib/blob/master/INSTALL.md)
 
 
 ### Clonación del repositorio 
