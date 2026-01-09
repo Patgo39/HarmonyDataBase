@@ -3,7 +3,7 @@ Base de datos musical que recopila etiquetas id3 de archivos MP3 y  permite edit
 
 ### Requerimientos y dependencias
 - **TagLib v2.1.1** [Descargar el .tar.gz](https://taglib.org/) y seguir la [guía de instalación](https://github.com/taglib/taglib/blob/master/INSTALL.md) con Zlib.
-- **Qt** [Siga la guía de instalación](https://www.qt.io/development/download-qt-installer) o aplique la instalación por distro.
+- **Qt v6.10.1** [Siga la guía de instalación](https://www.qt.io/development/download-qt-installer) o aplique la instalación por distro.
 
 ### Clonación del repositorio 
 ```bash
