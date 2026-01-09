@@ -2,12 +2,8 @@
 Base de datos musical que recopila etiquetas id3 de archivos MP3 y  permite editar ciertos datos de las canciones
 
 ### Requerimientos
-- vcpkg package management
-  
-### Instalación de taglib con vcpkg
-```bash
-vcpkg install taglib
-```
+- Debe estar instalado y accesible desde cualquier terminal, es decir, agregado al PATH.
+
 
 ### Clonación del repositorio 
 ```bash
