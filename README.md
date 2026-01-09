@@ -2,7 +2,7 @@
 Base de datos musical que recopila etiquetas id3 de archivos MP3 y  permite editar ciertos datos de las canciones
 
 ### Requerimientos y dependencias
-[TagLib](https://github.com/taglib/taglib/blob/master/INSTALL.md)
+TagLib v2.1.1 [Descargar el .tar.gz](https://taglib.org/) y seguir la [guía de instalación](https://github.com/taglib/taglib/blob/master/INSTALL.md) con Zlib
 
 
 ### Clonación del repositorio 
