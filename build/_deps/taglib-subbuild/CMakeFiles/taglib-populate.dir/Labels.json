@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/taglib-subbuild/CMakeFiles/taglib-populate"
+		},
+		{
+			"file" : "/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/taglib-subbuild/CMakeFiles/taglib-populate.rule"
+		},
+		{
+			"file" : "/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/taglib-subbuild/CMakeFiles/taglib-populate-complete.rule"
+		},
+		{
+			"file" : "/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/taglib-subbuild/taglib-populate-prefix/src/taglib-populate-stamp/taglib-populate-build.rule"
+		},
+		{
+			"file" : "/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/taglib-subbuild/taglib-populate-prefix/src/taglib-populate-stamp/taglib-populate-configure.rule"
+		},
+		{
+			"file" : "/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/taglib-subbuild/taglib-populate-prefix/src/taglib-populate-stamp/taglib-populate-download.rule"
+		},
+		{
+			"file" : "/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/taglib-subbuild/taglib-populate-prefix/src/taglib-populate-stamp/taglib-populate-install.rule"
+		},
+		{
+			"file" : "/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/taglib-subbuild/taglib-populate-prefix/src/taglib-populate-stamp/taglib-populate-mkdir.rule"
+		},
+		{
+			"file" : "/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/taglib-subbuild/taglib-populate-prefix/src/taglib-populate-stamp/taglib-populate-patch.rule"
+		},
+		{
+			"file" : "/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/taglib-subbuild/taglib-populate-prefix/src/taglib-populate-stamp/taglib-populate-test.rule"
+		},
+		{
+			"file" : "/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/taglib-subbuild/taglib-populate-prefix/src/taglib-populate-stamp/taglib-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"taglib-populate"
+		],
+		"name" : "taglib-populate"
+	}
+}

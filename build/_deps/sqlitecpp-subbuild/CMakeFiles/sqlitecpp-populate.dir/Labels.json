@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/sqlitecpp-subbuild/CMakeFiles/sqlitecpp-populate"
+		},
+		{
+			"file" : "/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/sqlitecpp-subbuild/CMakeFiles/sqlitecpp-populate.rule"
+		},
+		{
+			"file" : "/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/sqlitecpp-subbuild/CMakeFiles/sqlitecpp-populate-complete.rule"
+		},
+		{
+			"file" : "/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/sqlitecpp-subbuild/sqlitecpp-populate-prefix/src/sqlitecpp-populate-stamp/sqlitecpp-populate-build.rule"
+		},
+		{
+			"file" : "/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/sqlitecpp-subbuild/sqlitecpp-populate-prefix/src/sqlitecpp-populate-stamp/sqlitecpp-populate-configure.rule"
+		},
+		{
+			"file" : "/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/sqlitecpp-subbuild/sqlitecpp-populate-prefix/src/sqlitecpp-populate-stamp/sqlitecpp-populate-download.rule"
+		},
+		{
+			"file" : "/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/sqlitecpp-subbuild/sqlitecpp-populate-prefix/src/sqlitecpp-populate-stamp/sqlitecpp-populate-install.rule"
+		},
+		{
+			"file" : "/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/sqlitecpp-subbuild/sqlitecpp-populate-prefix/src/sqlitecpp-populate-stamp/sqlitecpp-populate-mkdir.rule"
+		},
+		{
+			"file" : "/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/sqlitecpp-subbuild/sqlitecpp-populate-prefix/src/sqlitecpp-populate-stamp/sqlitecpp-populate-patch.rule"
+		},
+		{
+			"file" : "/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/sqlitecpp-subbuild/sqlitecpp-populate-prefix/src/sqlitecpp-populate-stamp/sqlitecpp-populate-test.rule"
+		},
+		{
+			"file" : "/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/sqlitecpp-subbuild/sqlitecpp-populate-prefix/src/sqlitecpp-populate-stamp/sqlitecpp-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"sqlitecpp-populate"
+		],
+		"name" : "sqlitecpp-populate"
+	}
+}

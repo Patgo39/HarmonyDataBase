@@ -1,0 +1,1 @@
+/usr/lib64/ccache/c++ -Wl,--dependency-file=CMakeFiles/harmony_bd.dir/link.d CMakeFiles/harmony_bd.dir/src/main.cpp.o -o harmony_bd  _deps/sqlitecpp-build/libSQLiteCpp.a _deps/sqlitecpp-build/sqlite3/libsqlite3.a -ldl _deps/taglib-build/taglib/libtag.a /usr/lib64/libz.so

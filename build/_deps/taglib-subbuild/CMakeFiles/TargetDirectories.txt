@@ -1,0 +1,3 @@
+/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/taglib-subbuild/CMakeFiles/taglib-populate.dir
+/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/taglib-subbuild/CMakeFiles/edit_cache.dir
+/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/taglib-subbuild/CMakeFiles/rebuild_cache.dir
