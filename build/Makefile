@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB
+CMAKE_SOURCE_DIR = /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build
+CMAKE_BINARY_DIR = /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,7 +87,7 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target list_install_components
 list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\" \"headers\" \"libraries\""
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
 .PHONY : list_install_components
 
 # Special rule for the target list_install_components
@@ -132,9 +132,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/CMakeFiles /home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/build/CMakeFiles /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -175,30 +175,30 @@ harmony_bd/fast:
 .PHONY : harmony_bd/fast
 
 #=============================================================================
-# Target rules for targets named SQLiteCpp
+# Target rules for targets named harmony_bd_autogen_timestamp_deps
 
 # Build rule for target.
-SQLiteCpp: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SQLiteCpp
-.PHONY : SQLiteCpp
+harmony_bd_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 harmony_bd_autogen_timestamp_deps
+.PHONY : harmony_bd_autogen_timestamp_deps
 
 # fast build rule for target.
-SQLiteCpp/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/sqlitecpp-build/CMakeFiles/SQLiteCpp.dir/build.make _deps/sqlitecpp-build/CMakeFiles/SQLiteCpp.dir/build
-.PHONY : SQLiteCpp/fast
+harmony_bd_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/harmony_bd_autogen_timestamp_deps.dir/build.make CMakeFiles/harmony_bd_autogen_timestamp_deps.dir/build
+.PHONY : harmony_bd_autogen_timestamp_deps/fast
 
 #=============================================================================
-# Target rules for targets named sqlite3
+# Target rules for targets named harmony_bd_autogen
 
 # Build rule for target.
-sqlite3: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 sqlite3
-.PHONY : sqlite3
+harmony_bd_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 harmony_bd_autogen
+.PHONY : harmony_bd_autogen
 
 # fast build rule for target.
-sqlite3/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/sqlitecpp-build/sqlite3/CMakeFiles/sqlite3.dir/build.make _deps/sqlitecpp-build/sqlite3/CMakeFiles/sqlite3.dir/build
-.PHONY : sqlite3/fast
+harmony_bd_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/harmony_bd_autogen.dir/build.make CMakeFiles/harmony_bd_autogen.dir/build
+.PHONY : harmony_bd_autogen/fast
 
 #=============================================================================
 # Target rules for targets named Experimental
@@ -210,7 +210,7 @@ Experimental: cmake_check_build_system
 
 # fast build rule for target.
 Experimental/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/Experimental.dir/build.make _deps/taglib-build/CMakeFiles/Experimental.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/Experimental.dir/build.make _deps/sqlite_orm-build/CMakeFiles/Experimental.dir/build
 .PHONY : Experimental/fast
 
 #=============================================================================
@@ -223,7 +223,7 @@ Nightly: cmake_check_build_system
 
 # fast build rule for target.
 Nightly/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/Nightly.dir/build.make _deps/taglib-build/CMakeFiles/Nightly.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/Nightly.dir/build.make _deps/sqlite_orm-build/CMakeFiles/Nightly.dir/build
 .PHONY : Nightly/fast
 
 #=============================================================================
@@ -236,7 +236,7 @@ Continuous: cmake_check_build_system
 
 # fast build rule for target.
 Continuous/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/Continuous.dir/build.make _deps/taglib-build/CMakeFiles/Continuous.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/Continuous.dir/build.make _deps/sqlite_orm-build/CMakeFiles/Continuous.dir/build
 .PHONY : Continuous/fast
 
 #=============================================================================
@@ -249,7 +249,7 @@ NightlyMemoryCheck: cmake_check_build_system
 
 # fast build rule for target.
 NightlyMemoryCheck/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/NightlyMemoryCheck.dir/build.make _deps/taglib-build/CMakeFiles/NightlyMemoryCheck.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/NightlyMemoryCheck.dir/build.make _deps/sqlite_orm-build/CMakeFiles/NightlyMemoryCheck.dir/build
 .PHONY : NightlyMemoryCheck/fast
 
 #=============================================================================
@@ -262,7 +262,7 @@ NightlyStart: cmake_check_build_system
 
 # fast build rule for target.
 NightlyStart/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/NightlyStart.dir/build.make _deps/taglib-build/CMakeFiles/NightlyStart.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/NightlyStart.dir/build.make _deps/sqlite_orm-build/CMakeFiles/NightlyStart.dir/build
 .PHONY : NightlyStart/fast
 
 #=============================================================================
@@ -275,7 +275,7 @@ NightlyUpdate: cmake_check_build_system
 
 # fast build rule for target.
 NightlyUpdate/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/NightlyUpdate.dir/build.make _deps/taglib-build/CMakeFiles/NightlyUpdate.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/NightlyUpdate.dir/build.make _deps/sqlite_orm-build/CMakeFiles/NightlyUpdate.dir/build
 .PHONY : NightlyUpdate/fast
 
 #=============================================================================
@@ -288,7 +288,7 @@ NightlyConfigure: cmake_check_build_system
 
 # fast build rule for target.
 NightlyConfigure/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/NightlyConfigure.dir/build.make _deps/taglib-build/CMakeFiles/NightlyConfigure.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/NightlyConfigure.dir/build.make _deps/sqlite_orm-build/CMakeFiles/NightlyConfigure.dir/build
 .PHONY : NightlyConfigure/fast
 
 #=============================================================================
@@ -301,7 +301,7 @@ NightlyBuild: cmake_check_build_system
 
 # fast build rule for target.
 NightlyBuild/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/NightlyBuild.dir/build.make _deps/taglib-build/CMakeFiles/NightlyBuild.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/NightlyBuild.dir/build.make _deps/sqlite_orm-build/CMakeFiles/NightlyBuild.dir/build
 .PHONY : NightlyBuild/fast
 
 #=============================================================================
@@ -314,7 +314,7 @@ NightlyTest: cmake_check_build_system
 
 # fast build rule for target.
 NightlyTest/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/NightlyTest.dir/build.make _deps/taglib-build/CMakeFiles/NightlyTest.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/NightlyTest.dir/build.make _deps/sqlite_orm-build/CMakeFiles/NightlyTest.dir/build
 .PHONY : NightlyTest/fast
 
 #=============================================================================
@@ -327,7 +327,7 @@ NightlyCoverage: cmake_check_build_system
 
 # fast build rule for target.
 NightlyCoverage/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/NightlyCoverage.dir/build.make _deps/taglib-build/CMakeFiles/NightlyCoverage.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/NightlyCoverage.dir/build.make _deps/sqlite_orm-build/CMakeFiles/NightlyCoverage.dir/build
 .PHONY : NightlyCoverage/fast
 
 #=============================================================================
@@ -340,7 +340,7 @@ NightlyMemCheck: cmake_check_build_system
 
 # fast build rule for target.
 NightlyMemCheck/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/NightlyMemCheck.dir/build.make _deps/taglib-build/CMakeFiles/NightlyMemCheck.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/NightlyMemCheck.dir/build.make _deps/sqlite_orm-build/CMakeFiles/NightlyMemCheck.dir/build
 .PHONY : NightlyMemCheck/fast
 
 #=============================================================================
@@ -353,7 +353,7 @@ NightlySubmit: cmake_check_build_system
 
 # fast build rule for target.
 NightlySubmit/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/NightlySubmit.dir/build.make _deps/taglib-build/CMakeFiles/NightlySubmit.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/NightlySubmit.dir/build.make _deps/sqlite_orm-build/CMakeFiles/NightlySubmit.dir/build
 .PHONY : NightlySubmit/fast
 
 #=============================================================================
@@ -366,7 +366,7 @@ ExperimentalStart: cmake_check_build_system
 
 # fast build rule for target.
 ExperimentalStart/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/ExperimentalStart.dir/build.make _deps/taglib-build/CMakeFiles/ExperimentalStart.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/ExperimentalStart.dir/build.make _deps/sqlite_orm-build/CMakeFiles/ExperimentalStart.dir/build
 .PHONY : ExperimentalStart/fast
 
 #=============================================================================
@@ -379,7 +379,7 @@ ExperimentalUpdate: cmake_check_build_system
 
 # fast build rule for target.
 ExperimentalUpdate/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/ExperimentalUpdate.dir/build.make _deps/taglib-build/CMakeFiles/ExperimentalUpdate.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/ExperimentalUpdate.dir/build.make _deps/sqlite_orm-build/CMakeFiles/ExperimentalUpdate.dir/build
 .PHONY : ExperimentalUpdate/fast
 
 #=============================================================================
@@ -392,7 +392,7 @@ ExperimentalConfigure: cmake_check_build_system
 
 # fast build rule for target.
 ExperimentalConfigure/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/ExperimentalConfigure.dir/build.make _deps/taglib-build/CMakeFiles/ExperimentalConfigure.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/ExperimentalConfigure.dir/build.make _deps/sqlite_orm-build/CMakeFiles/ExperimentalConfigure.dir/build
 .PHONY : ExperimentalConfigure/fast
 
 #=============================================================================
@@ -405,7 +405,7 @@ ExperimentalBuild: cmake_check_build_system
 
 # fast build rule for target.
 ExperimentalBuild/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/ExperimentalBuild.dir/build.make _deps/taglib-build/CMakeFiles/ExperimentalBuild.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/ExperimentalBuild.dir/build.make _deps/sqlite_orm-build/CMakeFiles/ExperimentalBuild.dir/build
 .PHONY : ExperimentalBuild/fast
 
 #=============================================================================
@@ -418,7 +418,7 @@ ExperimentalTest: cmake_check_build_system
 
 # fast build rule for target.
 ExperimentalTest/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/ExperimentalTest.dir/build.make _deps/taglib-build/CMakeFiles/ExperimentalTest.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/ExperimentalTest.dir/build.make _deps/sqlite_orm-build/CMakeFiles/ExperimentalTest.dir/build
 .PHONY : ExperimentalTest/fast
 
 #=============================================================================
@@ -431,7 +431,7 @@ ExperimentalCoverage: cmake_check_build_system
 
 # fast build rule for target.
 ExperimentalCoverage/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/ExperimentalCoverage.dir/build.make _deps/taglib-build/CMakeFiles/ExperimentalCoverage.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/ExperimentalCoverage.dir/build.make _deps/sqlite_orm-build/CMakeFiles/ExperimentalCoverage.dir/build
 .PHONY : ExperimentalCoverage/fast
 
 #=============================================================================
@@ -444,7 +444,7 @@ ExperimentalMemCheck: cmake_check_build_system
 
 # fast build rule for target.
 ExperimentalMemCheck/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/ExperimentalMemCheck.dir/build.make _deps/taglib-build/CMakeFiles/ExperimentalMemCheck.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/ExperimentalMemCheck.dir/build.make _deps/sqlite_orm-build/CMakeFiles/ExperimentalMemCheck.dir/build
 .PHONY : ExperimentalMemCheck/fast
 
 #=============================================================================
@@ -457,7 +457,7 @@ ExperimentalSubmit: cmake_check_build_system
 
 # fast build rule for target.
 ExperimentalSubmit/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/ExperimentalSubmit.dir/build.make _deps/taglib-build/CMakeFiles/ExperimentalSubmit.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/ExperimentalSubmit.dir/build.make _deps/sqlite_orm-build/CMakeFiles/ExperimentalSubmit.dir/build
 .PHONY : ExperimentalSubmit/fast
 
 #=============================================================================
@@ -470,7 +470,7 @@ ContinuousStart: cmake_check_build_system
 
 # fast build rule for target.
 ContinuousStart/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/ContinuousStart.dir/build.make _deps/taglib-build/CMakeFiles/ContinuousStart.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/ContinuousStart.dir/build.make _deps/sqlite_orm-build/CMakeFiles/ContinuousStart.dir/build
 .PHONY : ContinuousStart/fast
 
 #=============================================================================
@@ -483,7 +483,7 @@ ContinuousUpdate: cmake_check_build_system
 
 # fast build rule for target.
 ContinuousUpdate/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/ContinuousUpdate.dir/build.make _deps/taglib-build/CMakeFiles/ContinuousUpdate.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/ContinuousUpdate.dir/build.make _deps/sqlite_orm-build/CMakeFiles/ContinuousUpdate.dir/build
 .PHONY : ContinuousUpdate/fast
 
 #=============================================================================
@@ -496,7 +496,7 @@ ContinuousConfigure: cmake_check_build_system
 
 # fast build rule for target.
 ContinuousConfigure/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/ContinuousConfigure.dir/build.make _deps/taglib-build/CMakeFiles/ContinuousConfigure.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/ContinuousConfigure.dir/build.make _deps/sqlite_orm-build/CMakeFiles/ContinuousConfigure.dir/build
 .PHONY : ContinuousConfigure/fast
 
 #=============================================================================
@@ -509,7 +509,7 @@ ContinuousBuild: cmake_check_build_system
 
 # fast build rule for target.
 ContinuousBuild/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/ContinuousBuild.dir/build.make _deps/taglib-build/CMakeFiles/ContinuousBuild.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/ContinuousBuild.dir/build.make _deps/sqlite_orm-build/CMakeFiles/ContinuousBuild.dir/build
 .PHONY : ContinuousBuild/fast
 
 #=============================================================================
@@ -522,7 +522,7 @@ ContinuousTest: cmake_check_build_system
 
 # fast build rule for target.
 ContinuousTest/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/ContinuousTest.dir/build.make _deps/taglib-build/CMakeFiles/ContinuousTest.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/ContinuousTest.dir/build.make _deps/sqlite_orm-build/CMakeFiles/ContinuousTest.dir/build
 .PHONY : ContinuousTest/fast
 
 #=============================================================================
@@ -535,7 +535,7 @@ ContinuousCoverage: cmake_check_build_system
 
 # fast build rule for target.
 ContinuousCoverage/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/ContinuousCoverage.dir/build.make _deps/taglib-build/CMakeFiles/ContinuousCoverage.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/ContinuousCoverage.dir/build.make _deps/sqlite_orm-build/CMakeFiles/ContinuousCoverage.dir/build
 .PHONY : ContinuousCoverage/fast
 
 #=============================================================================
@@ -548,7 +548,7 @@ ContinuousMemCheck: cmake_check_build_system
 
 # fast build rule for target.
 ContinuousMemCheck/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/ContinuousMemCheck.dir/build.make _deps/taglib-build/CMakeFiles/ContinuousMemCheck.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/ContinuousMemCheck.dir/build.make _deps/sqlite_orm-build/CMakeFiles/ContinuousMemCheck.dir/build
 .PHONY : ContinuousMemCheck/fast
 
 #=============================================================================
@@ -561,60 +561,32 @@ ContinuousSubmit: cmake_check_build_system
 
 # fast build rule for target.
 ContinuousSubmit/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/ContinuousSubmit.dir/build.make _deps/taglib-build/CMakeFiles/ContinuousSubmit.dir/build
+	$(MAKE) $(MAKESILENT) -f _deps/sqlite_orm-build/CMakeFiles/ContinuousSubmit.dir/build.make _deps/sqlite_orm-build/CMakeFiles/ContinuousSubmit.dir/build
 .PHONY : ContinuousSubmit/fast
 
-#=============================================================================
-# Target rules for targets named docs
+harmony_bd_autogen/mocs_compilation.o: harmony_bd_autogen/mocs_compilation.cpp.o
+.PHONY : harmony_bd_autogen/mocs_compilation.o
 
-# Build rule for target.
-docs: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 docs
-.PHONY : docs
+# target to build an object file
+harmony_bd_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/harmony_bd.dir/build.make CMakeFiles/harmony_bd.dir/harmony_bd_autogen/mocs_compilation.cpp.o
+.PHONY : harmony_bd_autogen/mocs_compilation.cpp.o
 
-# fast build rule for target.
-docs/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/docs.dir/build.make _deps/taglib-build/CMakeFiles/docs.dir/build
-.PHONY : docs/fast
+harmony_bd_autogen/mocs_compilation.i: harmony_bd_autogen/mocs_compilation.cpp.i
+.PHONY : harmony_bd_autogen/mocs_compilation.i
 
-#=============================================================================
-# Target rules for targets named uninstall
+# target to preprocess a source file
+harmony_bd_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/harmony_bd.dir/build.make CMakeFiles/harmony_bd.dir/harmony_bd_autogen/mocs_compilation.cpp.i
+.PHONY : harmony_bd_autogen/mocs_compilation.cpp.i
 
-# Build rule for target.
-uninstall: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 uninstall
-.PHONY : uninstall
+harmony_bd_autogen/mocs_compilation.s: harmony_bd_autogen/mocs_compilation.cpp.s
+.PHONY : harmony_bd_autogen/mocs_compilation.s
 
-# fast build rule for target.
-uninstall/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/CMakeFiles/uninstall.dir/build.make _deps/taglib-build/CMakeFiles/uninstall.dir/build
-.PHONY : uninstall/fast
-
-#=============================================================================
-# Target rules for targets named tag
-
-# Build rule for target.
-tag: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tag
-.PHONY : tag
-
-# fast build rule for target.
-tag/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/taglib/CMakeFiles/tag.dir/build.make _deps/taglib-build/taglib/CMakeFiles/tag.dir/build
-.PHONY : tag/fast
-
-#=============================================================================
-# Target rules for targets named tag_c
-
-# Build rule for target.
-tag_c: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tag_c
-.PHONY : tag_c
-
-# fast build rule for target.
-tag_c/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/taglib-build/bindings/c/CMakeFiles/tag_c.dir/build.make _deps/taglib-build/bindings/c/CMakeFiles/tag_c.dir/build
-.PHONY : tag_c/fast
+# target to generate assembly for a file
+harmony_bd_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/harmony_bd.dir/build.make CMakeFiles/harmony_bd.dir/harmony_bd_autogen/mocs_compilation.cpp.s
+.PHONY : harmony_bd_autogen/mocs_compilation.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -680,13 +652,12 @@ help:
 	@echo "... NightlySubmit"
 	@echo "... NightlyTest"
 	@echo "... NightlyUpdate"
-	@echo "... docs"
-	@echo "... uninstall"
-	@echo "... SQLiteCpp"
+	@echo "... harmony_bd_autogen"
+	@echo "... harmony_bd_autogen_timestamp_deps"
 	@echo "... harmony_bd"
-	@echo "... sqlite3"
-	@echo "... tag"
-	@echo "... tag_c"
+	@echo "... harmony_bd_autogen/mocs_compilation.o"
+	@echo "... harmony_bd_autogen/mocs_compilation.i"
+	@echo "... harmony_bd_autogen/mocs_compilation.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

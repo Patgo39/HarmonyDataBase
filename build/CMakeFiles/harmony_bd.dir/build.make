@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB
+CMAKE_SOURCE_DIR = /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build
+CMAKE_BINARY_DIR = /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/harmony_bd.dir/depend.make
@@ -72,36 +72,55 @@ include CMakeFiles/harmony_bd.dir/flags.make
 CMakeFiles/harmony_bd.dir/codegen:
 .PHONY : CMakeFiles/harmony_bd.dir/codegen
 
+CMakeFiles/harmony_bd.dir/harmony_bd_autogen/mocs_compilation.cpp.o: CMakeFiles/harmony_bd.dir/flags.make
+CMakeFiles/harmony_bd.dir/harmony_bd_autogen/mocs_compilation.cpp.o: harmony_bd_autogen/mocs_compilation.cpp
+CMakeFiles/harmony_bd.dir/harmony_bd_autogen/mocs_compilation.cpp.o: CMakeFiles/harmony_bd.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/harmony_bd.dir/harmony_bd_autogen/mocs_compilation.cpp.o"
+	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/harmony_bd.dir/harmony_bd_autogen/mocs_compilation.cpp.o -MF CMakeFiles/harmony_bd.dir/harmony_bd_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/harmony_bd.dir/harmony_bd_autogen/mocs_compilation.cpp.o -c /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/build/harmony_bd_autogen/mocs_compilation.cpp
+
+CMakeFiles/harmony_bd.dir/harmony_bd_autogen/mocs_compilation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/harmony_bd.dir/harmony_bd_autogen/mocs_compilation.cpp.i"
+	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/build/harmony_bd_autogen/mocs_compilation.cpp > CMakeFiles/harmony_bd.dir/harmony_bd_autogen/mocs_compilation.cpp.i
+
+CMakeFiles/harmony_bd.dir/harmony_bd_autogen/mocs_compilation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/harmony_bd.dir/harmony_bd_autogen/mocs_compilation.cpp.s"
+	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/build/harmony_bd_autogen/mocs_compilation.cpp -o CMakeFiles/harmony_bd.dir/harmony_bd_autogen/mocs_compilation.cpp.s
+
 CMakeFiles/harmony_bd.dir/src/main.cpp.o: CMakeFiles/harmony_bd.dir/flags.make
-CMakeFiles/harmony_bd.dir/src/main.cpp.o: /home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/src/main.cpp
+CMakeFiles/harmony_bd.dir/src/main.cpp.o: /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/src/main.cpp
 CMakeFiles/harmony_bd.dir/src/main.cpp.o: CMakeFiles/harmony_bd.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/harmony_bd.dir/src/main.cpp.o"
-	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/harmony_bd.dir/src/main.cpp.o -MF CMakeFiles/harmony_bd.dir/src/main.cpp.o.d -o CMakeFiles/harmony_bd.dir/src/main.cpp.o -c /home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/harmony_bd.dir/src/main.cpp.o"
+	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/harmony_bd.dir/src/main.cpp.o -MF CMakeFiles/harmony_bd.dir/src/main.cpp.o.d -o CMakeFiles/harmony_bd.dir/src/main.cpp.o -c /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/src/main.cpp
 
 CMakeFiles/harmony_bd.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/harmony_bd.dir/src/main.cpp.i"
-	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/src/main.cpp > CMakeFiles/harmony_bd.dir/src/main.cpp.i
+	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/src/main.cpp > CMakeFiles/harmony_bd.dir/src/main.cpp.i
 
 CMakeFiles/harmony_bd.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/harmony_bd.dir/src/main.cpp.s"
-	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/src/main.cpp -o CMakeFiles/harmony_bd.dir/src/main.cpp.s
+	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/src/main.cpp -o CMakeFiles/harmony_bd.dir/src/main.cpp.s
 
 # Object files for target harmony_bd
 harmony_bd_OBJECTS = \
+"CMakeFiles/harmony_bd.dir/harmony_bd_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/harmony_bd.dir/src/main.cpp.o"
 
 # External object files for target harmony_bd
 harmony_bd_EXTERNAL_OBJECTS =
 
+harmony_bd: CMakeFiles/harmony_bd.dir/harmony_bd_autogen/mocs_compilation.cpp.o
 harmony_bd: CMakeFiles/harmony_bd.dir/src/main.cpp.o
 harmony_bd: CMakeFiles/harmony_bd.dir/build.make
 harmony_bd: CMakeFiles/harmony_bd.dir/compiler_depend.ts
-harmony_bd: _deps/sqlitecpp-build/libSQLiteCpp.a
-harmony_bd: _deps/sqlitecpp-build/sqlite3/libsqlite3.a
-harmony_bd: _deps/taglib-build/taglib/libtag.a
-harmony_bd: /usr/lib64/libz.so
+harmony_bd: /usr/lib64/libsqlite3.so
+harmony_bd: /usr/lib64/libQt6Widgets.so.6.10.3
+harmony_bd: /usr/lib64/libQt6Gui.so.6.10.3
+harmony_bd: /usr/lib64/libGLX.so
+harmony_bd: /usr/lib64/libOpenGL.so
+harmony_bd: /usr/lib64/libQt6Core.so.6.10.3
+harmony_bd: /usr/lib64/libsqlite3.so
 harmony_bd: CMakeFiles/harmony_bd.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable harmony_bd"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable harmony_bd"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/harmony_bd.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -113,6 +132,6 @@ CMakeFiles/harmony_bd.dir/clean:
 .PHONY : CMakeFiles/harmony_bd.dir/clean
 
 CMakeFiles/harmony_bd.dir/depend:
-	cd /home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB /home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB /home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build /home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build /home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/CMakeFiles/harmony_bd.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/build /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/build /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/build/CMakeFiles/harmony_bd.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/harmony_bd.dir/depend
 

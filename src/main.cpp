@@ -1,7 +1,11 @@
 #include <iostream>
-#include <SQLiteCpp/SQLiteCpp.h>
-#include <fileref.h>
-#include <tag.h>
+#include <QCoreApplication>
+#include <QString>
+#include <QDebug>
+#include <taglib/fileref.h>
+#include <taglib/tag.h>
+#include <taglib/tstring.h>
+#include <sqlite3.h>
 
 int main(){
 

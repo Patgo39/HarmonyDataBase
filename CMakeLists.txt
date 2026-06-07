@@ -1,3 +1,4 @@
+
 cmake_minimum_required(VERSION 3.20)
 project(HarmonyBD VERSION 1.0 LANGUAGES CXX)
 
@@ -6,56 +7,42 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(FetchContent)
 
-# -----------------------
-# SQLiteCpp
-# -----------------------
+find_package(ZLIB REQUIRED)
+find_package(Qt6 REQUIRED COMPONENTS Widgets)
+find_package(SQLite3 REQUIRED)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(TAGLIB REQUIRED taglib)
+
 FetchContent_Declare(
-    SQLiteCpp
-    GIT_REPOSITORY https://github.com/SRombauts/SQLiteCpp
-    GIT_TAG 59a047b
+  sqlite_orm
+  GIT_REPOSITORY https://github.com/fnc12/sqlite_orm.git
+  GIT_TAG        v1.9.1
 )
 
-# -----------------------
-# TagLib
-# -----------------------
-FetchContent_Declare(
-    TagLib
-    GIT_REPOSITORY https://github.com/taglib/taglib
-    GIT_TAG 7d86716
-)
+set(SQLITE_ORM_BUILD_TESTS OFF CACHE INTERNAL "")
 
-FetchContent_MakeAvailable(SQLiteCpp TagLib)
+FetchContent_MakeAvailable(sqlite_orm)
 
-# -----------------------
-# Wrapper moderno para TagLib
-# -----------------------
-add_library(taglib_wrapper INTERFACE)
-
-target_include_directories(taglib_wrapper
-    INTERFACE
-        ${TagLib_SOURCE_DIR}
-        ${TagLib_SOURCE_DIR}/taglib
-)
-
-target_link_libraries(taglib_wrapper
-    INTERFACE
-        tag
-)
-
-# -----------------------
-# Ejecutable
-# -----------------------
 add_executable(harmony_bd
-    src/main.cpp
+  src/main.cpp
+)
+
+set_target_properties(harmony_bd PROPERTIES
+    AUTOMOC ON
+    AUTOUIC ON
+    AUTORCC ON
 )
 
 target_include_directories(harmony_bd
     PRIVATE
         include
+        ${TAGLIB_INCLUDE_DIRS}
 )
 
 target_link_libraries(harmony_bd
     PRIVATE
-        SQLiteCpp
-        taglib_wrapper
+        SQLite::SQLite3
+        Qt6::Widgets
+	sqlite_orm::sqlite_orm
+        ${TAGLIB_LIBRARIES}
 )

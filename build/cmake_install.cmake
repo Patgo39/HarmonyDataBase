@@ -1,4 +1,4 @@
-# Install script for directory: /home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB
+# Install script for directory: /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,18 +44,13 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/sqlitecpp-build/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/_deps/taglib-build/cmake_install.cmake")
+  include("/home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/build/_deps/sqlite_orm-build/cmake_install.cmake")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/install_local_manifest.txt"
+  file(WRITE "/home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/build/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
 if(CMAKE_INSTALL_COMPONENT)
@@ -71,6 +66,6 @@ else()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/patriciogarcia/Desktop/Proyects/cpp/projects/HarmonyDB/build/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "/home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
