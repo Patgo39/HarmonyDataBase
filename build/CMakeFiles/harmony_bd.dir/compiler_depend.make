@@ -4,8 +4,8 @@
 CMakeFiles/harmony_bd.dir/harmony_bd_autogen/mocs_compilation.cpp.o: harmony_bd_autogen/mocs_compilation.cpp \
   /usr/include/stdc-predef.h
 
-CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.o: /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/src/db/database_conection.cpp \
-  /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/include/db/database_conection.h \
+CMakeFiles/harmony_bd.dir/src/db/database_conection_manager.cpp.o: /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/src/db/database_conection_manager.cpp \
+  /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/include/db/database_conection_manager.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
   /usr/include/asm-generic/errno-base.h \
@@ -271,7 +271,7 @@ CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.o: /home/patriciogarcia/
   /usr/lib/gcc/x86_64-redhat-linux/15/include/stdint.h
 
 CMakeFiles/harmony_bd.dir/src/main.cpp.o: /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/src/main.cpp \
-  /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/include/db/database_conection.h \
+  /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/include/db/database_conection_manager.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
   /usr/include/asm-generic/errno-base.h \
@@ -593,7 +593,7 @@ harmony_bd: /lib64/ld-linux-x86-64.so.2 \
   /usr/lib64/libxml2.so.2 \
   /usr/lib64/libzstd.so.1 \
   CMakeFiles/harmony_bd.dir/harmony_bd_autogen/mocs_compilation.cpp.o \
-  CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.o \
+  CMakeFiles/harmony_bd.dir/src/db/database_conection_manager.cpp.o \
   CMakeFiles/harmony_bd.dir/src/main.cpp.o
 
 
@@ -651,6 +651,8 @@ harmony_bd: /lib64/ld-linux-x86-64.so.2 \
 
 /usr/lib64/crt1.o:
 
+CMakeFiles/harmony_bd.dir/src/db/database_conection_manager.cpp.o:
+
 /lib64/libmvec.so.1:
 
 /lib64/libgcc_s.so.1:
@@ -673,8 +675,6 @@ harmony_bd: /lib64/ld-linux-x86-64.so.2 \
 
 /usr/include/c++/15/bits/locale_conv.h:
 
-CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.o:
-
 /usr/include/bits/waitflags.h:
 
 /usr/lib64/libc.so:
@@ -684,6 +684,12 @@ CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.o:
 /usr/include/bits/types/locale_t.h:
 
 /usr/include/c++/15/bits/iterator_concepts.h:
+
+/lib64/libm.so.6:
+
+/usr/include/c++/15/bits/hash_bytes.h:
+
+/usr/include/c++/15/bits/locale_classes.tcc:
 
 /usr/include/c++/15/bits/functional_hash.h:
 
@@ -701,6 +707,8 @@ CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.o:
 
 /usr/include/asm/bitsperlong.h:
 
+/home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/src/db/database_conection_manager.cpp:
+
 /usr/lib64/libbrotlicommon.so.1:
 
 /usr/include/pthread.h:
@@ -712,6 +720,8 @@ CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.o:
 /usr/include/c++/15/bits/concept_check.h:
 
 /usr/include/c++/15/bits/version.h:
+
+/usr/include/linux/stat.h:
 
 /usr/include/sys/stat.h:
 
@@ -829,6 +839,8 @@ CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.o:
 
 /usr/include/bits/typesizes.h:
 
+/usr/include/bits/struct_mutex.h:
+
 /usr/include/bits/confname.h:
 
 /usr/include/c++/15/bits/char_traits.h:
@@ -843,33 +855,7 @@ CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.o:
 
 /usr/include/bits/stdlib-float.h:
 
-/usr/include/c++/15/bits/locale_classes.tcc:
-
-/lib64/libm.so.6:
-
-/usr/include/c++/15/bits/hash_bytes.h:
-
 /usr/include/c++/15/bits/basic_ios.tcc:
-
-/usr/include/asm/types.h:
-
-/usr/include/alloca.h:
-
-/usr/lib64/libX11.so.6:
-
-/usr/include/bits/stdint-least.h:
-
-/usr/include/bits/struct_mutex.h:
-
-/usr/include/c++/15/bits/move.h:
-
-/home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/src/db/database_conection.cpp:
-
-/usr/include/asm-generic/errno-base.h:
-
-/usr/include/asm-generic/bitsperlong.h:
-
-/usr/include/asm-generic/types.h:
 
 /usr/include/asm-generic/errno.h:
 
@@ -880,6 +866,22 @@ CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.o:
 /usr/include/c++/15/bits/charconv.h:
 
 /usr/include/bits/types/clock_t.h:
+
+/usr/include/asm-generic/errno-base.h:
+
+/usr/include/asm-generic/bitsperlong.h:
+
+/usr/include/asm-generic/types.h:
+
+/usr/include/asm/types.h:
+
+/usr/include/alloca.h:
+
+/usr/lib64/libX11.so.6:
+
+/usr/include/bits/stdint-least.h:
+
+/usr/include/c++/15/bits/move.h:
 
 /usr/include/bits/types/__sigset_t.h:
 
@@ -898,20 +900,6 @@ CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.o:
 /usr/include/c++/15/type_traits:
 
 /usr/include/c++/15/x86_64-redhat-linux/bits/gthr.h:
-
-/usr/include/linux/stat.h:
-
-/home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/include/db/database_conection.h:
-
-/usr/lib64/libOpenGL.so:
-
-/usr/include/c++/15/bits/ostream_insert.h:
-
-/usr/include/bits/types/error_t.h:
-
-/usr/include/c++/15/bits/utility.h:
-
-/usr/include/linux/close_range.h:
 
 /usr/include/bits/long-double.h:
 
@@ -971,13 +959,15 @@ CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.o:
 
 /usr/include/c++/15/bits/ranges_cmp.h:
 
-/usr/include/bits/types/time_t.h:
+/usr/lib64/libOpenGL.so:
 
-/usr/include/bits/types.h:
+/usr/include/c++/15/bits/ostream_insert.h:
 
-/usr/lib64/liblzma.so.5:
+/usr/include/bits/types/error_t.h:
 
-/usr/include/c++/15/bits/streambuf_iterator.h:
+/usr/include/c++/15/bits/utility.h:
+
+/usr/include/linux/close_range.h:
 
 /usr/include/c++/15/bits/locale_facets_nonio.h:
 
@@ -991,6 +981,14 @@ CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.o:
 
 /usr/include/c++/15/x86_64-redhat-linux/bits/atomic_word.h:
 
+/usr/include/bits/types/time_t.h:
+
+/usr/include/bits/types.h:
+
+/usr/lib64/liblzma.so.5:
+
+/usr/include/c++/15/bits/streambuf_iterator.h:
+
 /usr/include/c++/15/bits/locale_facets_nonio.tcc:
 
 /usr/include/c++/15/bits/max_size_type.h:
@@ -1002,6 +1000,8 @@ CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.o:
 /usr/include/c++/15/bits/nested_exception.h:
 
 /usr/include/c++/15/iomanip:
+
+/home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/include/db/database_conection_manager.hpp:
 
 /usr/include/asm/posix_types_64.h:
 

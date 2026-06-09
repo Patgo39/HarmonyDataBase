@@ -25,7 +25,7 @@ FetchContent_MakeAvailable(sqlite_orm)
 
 add_executable(harmony_bd
   src/main.cpp
-  src/db/database_conection.cpp
+  src/db/database_conection_manager.cpp
 )
 
 set_target_properties(harmony_bd PROPERTIES

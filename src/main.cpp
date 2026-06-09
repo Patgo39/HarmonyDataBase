@@ -1,10 +1,10 @@
 #include <iostream>
-#include "../include/db/database_conection.h"
+#include "../include/db/database_conection_manager.hpp"
 
 int main(){
 
     std::cout<<"Hello world!"<<std::endl;
-    DatabaseConection dc;
+    DatabaseConectionManager &dc = DatabaseConectionManager::getInstance();
 
     return 0;
 }

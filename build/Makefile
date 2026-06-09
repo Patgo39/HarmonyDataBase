@@ -588,29 +588,29 @@ harmony_bd_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/harmony_bd.dir/build.make CMakeFiles/harmony_bd.dir/harmony_bd_autogen/mocs_compilation.cpp.s
 .PHONY : harmony_bd_autogen/mocs_compilation.cpp.s
 
-src/db/database_conection.o: src/db/database_conection.cpp.o
-.PHONY : src/db/database_conection.o
+src/db/database_conection_manager.o: src/db/database_conection_manager.cpp.o
+.PHONY : src/db/database_conection_manager.o
 
 # target to build an object file
-src/db/database_conection.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/harmony_bd.dir/build.make CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.o
-.PHONY : src/db/database_conection.cpp.o
+src/db/database_conection_manager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/harmony_bd.dir/build.make CMakeFiles/harmony_bd.dir/src/db/database_conection_manager.cpp.o
+.PHONY : src/db/database_conection_manager.cpp.o
 
-src/db/database_conection.i: src/db/database_conection.cpp.i
-.PHONY : src/db/database_conection.i
+src/db/database_conection_manager.i: src/db/database_conection_manager.cpp.i
+.PHONY : src/db/database_conection_manager.i
 
 # target to preprocess a source file
-src/db/database_conection.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/harmony_bd.dir/build.make CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.i
-.PHONY : src/db/database_conection.cpp.i
+src/db/database_conection_manager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/harmony_bd.dir/build.make CMakeFiles/harmony_bd.dir/src/db/database_conection_manager.cpp.i
+.PHONY : src/db/database_conection_manager.cpp.i
 
-src/db/database_conection.s: src/db/database_conection.cpp.s
-.PHONY : src/db/database_conection.s
+src/db/database_conection_manager.s: src/db/database_conection_manager.cpp.s
+.PHONY : src/db/database_conection_manager.s
 
 # target to generate assembly for a file
-src/db/database_conection.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/harmony_bd.dir/build.make CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.s
-.PHONY : src/db/database_conection.cpp.s
+src/db/database_conection_manager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/harmony_bd.dir/build.make CMakeFiles/harmony_bd.dir/src/db/database_conection_manager.cpp.s
+.PHONY : src/db/database_conection_manager.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -682,9 +682,9 @@ help:
 	@echo "... harmony_bd_autogen/mocs_compilation.o"
 	@echo "... harmony_bd_autogen/mocs_compilation.i"
 	@echo "... harmony_bd_autogen/mocs_compilation.s"
-	@echo "... src/db/database_conection.o"
-	@echo "... src/db/database_conection.i"
-	@echo "... src/db/database_conection.s"
+	@echo "... src/db/database_conection_manager.o"
+	@echo "... src/db/database_conection_manager.i"
+	@echo "... src/db/database_conection_manager.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

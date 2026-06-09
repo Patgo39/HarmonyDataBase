@@ -100,32 +100,32 @@ CMakeFiles/harmony_bd.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/harmony_bd.dir/src/main.cpp.s"
 	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/src/main.cpp -o CMakeFiles/harmony_bd.dir/src/main.cpp.s
 
-CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.o: CMakeFiles/harmony_bd.dir/flags.make
-CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.o: /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/src/db/database_conection.cpp
-CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.o: CMakeFiles/harmony_bd.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.o"
-	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.o -MF CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.o.d -o CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.o -c /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/src/db/database_conection.cpp
+CMakeFiles/harmony_bd.dir/src/db/database_conection_manager.cpp.o: CMakeFiles/harmony_bd.dir/flags.make
+CMakeFiles/harmony_bd.dir/src/db/database_conection_manager.cpp.o: /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/src/db/database_conection_manager.cpp
+CMakeFiles/harmony_bd.dir/src/db/database_conection_manager.cpp.o: CMakeFiles/harmony_bd.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/harmony_bd.dir/src/db/database_conection_manager.cpp.o"
+	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/harmony_bd.dir/src/db/database_conection_manager.cpp.o -MF CMakeFiles/harmony_bd.dir/src/db/database_conection_manager.cpp.o.d -o CMakeFiles/harmony_bd.dir/src/db/database_conection_manager.cpp.o -c /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/src/db/database_conection_manager.cpp
 
-CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.i"
-	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/src/db/database_conection.cpp > CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.i
+CMakeFiles/harmony_bd.dir/src/db/database_conection_manager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/harmony_bd.dir/src/db/database_conection_manager.cpp.i"
+	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/src/db/database_conection_manager.cpp > CMakeFiles/harmony_bd.dir/src/db/database_conection_manager.cpp.i
 
-CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.s"
-	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/src/db/database_conection.cpp -o CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.s
+CMakeFiles/harmony_bd.dir/src/db/database_conection_manager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/harmony_bd.dir/src/db/database_conection_manager.cpp.s"
+	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/patriciogarcia/Desktop/Proyectos/cpp/projects/HarmonyDB/src/db/database_conection_manager.cpp -o CMakeFiles/harmony_bd.dir/src/db/database_conection_manager.cpp.s
 
 # Object files for target harmony_bd
 harmony_bd_OBJECTS = \
 "CMakeFiles/harmony_bd.dir/harmony_bd_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/harmony_bd.dir/src/main.cpp.o" \
-"CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.o"
+"CMakeFiles/harmony_bd.dir/src/db/database_conection_manager.cpp.o"
 
 # External object files for target harmony_bd
 harmony_bd_EXTERNAL_OBJECTS =
 
 harmony_bd: CMakeFiles/harmony_bd.dir/harmony_bd_autogen/mocs_compilation.cpp.o
 harmony_bd: CMakeFiles/harmony_bd.dir/src/main.cpp.o
-harmony_bd: CMakeFiles/harmony_bd.dir/src/db/database_conection.cpp.o
+harmony_bd: CMakeFiles/harmony_bd.dir/src/db/database_conection_manager.cpp.o
 harmony_bd: CMakeFiles/harmony_bd.dir/build.make
 harmony_bd: CMakeFiles/harmony_bd.dir/compiler_depend.ts
 harmony_bd: /usr/lib64/libsqlite3.so
