@@ -26,6 +26,8 @@ FetchContent_MakeAvailable(sqlite_orm)
 add_executable(harmony_bd
   src/main.cpp
   src/db/database_conection_manager.cpp
+  src/models/person.cpp
+  src/daos/person_dao.cpp
 )
 
 set_target_properties(harmony_bd PROPERTIES

@@ -1,5 +1,9 @@
 #include <iostream>
 #include "../include/db/database_conection_manager.hpp"
+#include "../include/daos/person_dao.hpp"
+#include "../include/models/person.hpp"
+
+
 
 int main(){
 

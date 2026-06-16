@@ -8,7 +8,7 @@ DatabaseConectionManager::DatabaseConectionManager(){
   std::string folder_path = home_dir + "/.local/share/harmonydb";
   db_path = folder_path +"/"+ db_name;
 
-  // Verificación de existencia de la base de datos
+  // Verificación de existencia de la carpeta
   if(!std::filesystem::exists(folder_path)){
     if(!std::filesystem::create_directory(folder_path)){
       throw std::runtime_error("Error creating harmonydb folder in .local/share");
@@ -116,6 +116,13 @@ CREATE TABLE IF NOT EXISTS rolas (
 
     throw std::runtime_error(error_str);
   }
+
 }
 
+const sqlite3* DatabaseConectionManager::getDatabaseConectionPointer() const{
+  return db;
+}
 
+const std::string DatabaseConectionManager::getDatabasePath() const{
+  return db_path;
+}
