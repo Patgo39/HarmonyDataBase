@@ -4,16 +4,18 @@
 #include <iostream>
 #include <filesystem>
 #include <string>
+#include <cstring>
+#include <memory>
 #include <sqlite3.h>
 #include <unistd.h>
-#include <cstring>
 #include <sys/stat.h>
 #include "../models/person.hpp"
 
+using sqlite3_ptr = std::unique_ptr<sqlite3, decltype(&sqlite3_close)>;
 
 class DatabaseConectionManager{
   std::string db_name;
-  sqlite3 *db;
+  sqlite3_ptr db;
   std::string db_path;
 
 public: 
@@ -22,7 +24,6 @@ public:
   static DatabaseConectionManager& getInstance();
   DatabaseConectionManager(const DatabaseConectionManager&) = delete;
   DatabaseConectionManager& operator=(const DatabaseConectionManager&) = delete;
-  const sqlite3* getDatabaseConectionPointer() const;
   const std::string getDatabasePath() const;
 
 private:

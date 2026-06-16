@@ -1,6 +1,7 @@
 #include "../../include/db/database_conection_manager.hpp"
 
-DatabaseConectionManager::DatabaseConectionManager(){
+DatabaseConectionManager::DatabaseConectionManager() : db(nullptr, &sqlite3_close){
+
   // Configuración de dirección de almacenamiento
   db_name = "database.sqlite3";
   bool create_tables;
@@ -20,7 +21,8 @@ DatabaseConectionManager::DatabaseConectionManager(){
   }
   
   // Abrir la base de datos
-  if(sqlite3_open(db_path.c_str(), &db)){
+  sqlite3 *dbraw = db.get();
+  if(sqlite3_open(db_path.c_str(), &dbraw)){
     throw std::runtime_error("Error opening the database.");
     
   }else{
@@ -36,9 +38,7 @@ DatabaseConectionManager& DatabaseConectionManager::getInstance(){
   return instancePtr;
 }
 
-DatabaseConectionManager::~DatabaseConectionManager(){
-  sqlite3_close(db);
-}
+DatabaseConectionManager::~DatabaseConectionManager(){}
 
 void DatabaseConectionManager::createTables(){
   const char* sql = R"sql(
@@ -103,7 +103,8 @@ CREATE TABLE IF NOT EXISTS rolas (
 )sql";
 
   char* errMsg = nullptr;
-  int response = sqlite3_exec(db, sql, NULL, 0, &errMsg);
+  sqlite3 *dbraw = db.get();
+  int response = sqlite3_exec(dbraw, sql, NULL, 0, &errMsg);
 
   if(response != SQLITE_OK){
     std::string error_str = "Error in creation of tables: ";
@@ -117,10 +118,6 @@ CREATE TABLE IF NOT EXISTS rolas (
     throw std::runtime_error(error_str);
   }
 
-}
-
-const sqlite3* DatabaseConectionManager::getDatabaseConectionPointer() const{
-  return db;
 }
 
 const std::string DatabaseConectionManager::getDatabasePath() const{
