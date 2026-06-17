@@ -26,6 +26,7 @@ FetchContent_MakeAvailable(sqlite_orm)
 add_executable(harmony_bd
   src/main.cpp
   src/db/database_conection_manager.cpp
+  # models
   src/models/album.cpp 
   src/models/group.cpp 
   src/models/in_group.cpp 
@@ -33,7 +34,15 @@ add_executable(harmony_bd
   src/models/person.cpp
   src/models/rola.cpp 
   src/models/type.cpp 
+
+  #daos
+  src/daos/album_dao.cpp 
+  src/daos/group_dao.cpp 
+  src/daos/in_group_dao.cpp 
+  src/daos/performer_dao.cpp 
   src/daos/person_dao.cpp
+  src/daos/rola_dao.cpp 
+  src/daos/type_dao.cpp 
 )
 
 set_target_properties(harmony_bd PROPERTIES
