@@ -12,8 +12,8 @@ public:
     std::optional<std::string> end_date;
 
     Group() = default;
-    Group(std::string, std::string, std::string);
-    Group(int, std::string, std::string, std::string);
+    Group(std::string _name, std::string _start_date, std::string _end_date);
+    Group(int _id_group, std::string _name, std::string _start_date, std::string _end_date);
 };
 
 #endif

@@ -10,8 +10,8 @@ public:
     std::optional<std::string> description;
 
     Type() = default;
-    Type(std::string);
-    Type(int, std::string);
+    Type(std::string _description);
+    Type(int _id_type, std::string _description);
 };
 
 #endif

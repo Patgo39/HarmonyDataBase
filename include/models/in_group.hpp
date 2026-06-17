@@ -7,7 +7,7 @@ public:
     int id_group = 0;
 
     InGroup() = default;
-    InGroup(int, int);
+    InGroup(int _id_person, int _id_group);
 };
 
 #endif

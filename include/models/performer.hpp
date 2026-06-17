@@ -11,8 +11,8 @@ public:
     std::optional<std::string> name;
 
     Performer() = default;
-    Performer(int, std::string);
-    Performer(int, int, std::string);
+    Performer(int _id_type, std::string _name);
+    Performer(int _id_performer, int _id_type, std::string _name);
 };
 
 #endif

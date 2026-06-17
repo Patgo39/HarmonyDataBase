@@ -16,8 +16,8 @@ public:
     std::optional<std::string> genre;
 
     Rola() = default;
-    Rola(int, int, std::string, std::string, int, int, std::string);
-    Rola(int, int, int, std::string, std::string, int, int, std::string);
+    Rola(int _id_performer, int _id_album, std::string _path, std::string _title, int _track, int _year, std::string _genre);
+    Rola(int _id_rola, int _id_performer, int _id_album, std::string _path, std::string _title, int _track, int _year, std::string _genre);
 };
 
 #endif

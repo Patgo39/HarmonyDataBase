@@ -14,8 +14,8 @@ public:
   std::optional<std::string> death_date;
   
   Person() = default;
-  Person(std::string, std::string, std::string, std::string);
-  Person(int, std::string, std::string, std::string, std::string);
+  Person(std::string _stage_name, std::string _real_name, std::string _birth_date, std::string _death_date);
+  Person(int _id_person, std::string _stage_name, std::string _real_name, std::string _birth_date, std::string _death_date);
   
 };
 

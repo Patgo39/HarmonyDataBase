@@ -12,8 +12,8 @@ class Album{
     std::optional<int> year;
 
     Album() = default;
-    Album(std::string, std::string, int);
-    Album(int, std::string, std::string, int);
+    Album(std::string _path, std::string _name, int _year);
+    Album(int _id_album, std::string _path, std::string _name, int _year);
 };
 
 #endif
