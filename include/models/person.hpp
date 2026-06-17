@@ -3,8 +3,6 @@
 
 #include <string>
 #include <optional>
-#include <chrono>
-#include "../db/database_conection_manager.hpp"
 
 class Person{
 

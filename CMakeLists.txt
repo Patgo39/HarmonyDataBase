@@ -26,7 +26,13 @@ FetchContent_MakeAvailable(sqlite_orm)
 add_executable(harmony_bd
   src/main.cpp
   src/db/database_conection_manager.cpp
+  src/models/album.cpp 
+  src/models/group.cpp 
+  src/models/in_group.cpp 
+  src/models/performer.cpp 
   src/models/person.cpp
+  src/models/rola.cpp 
+  src/models/type.cpp 
   src/daos/person_dao.cpp
 )
 
@@ -46,6 +52,6 @@ target_link_libraries(harmony_bd
     PRIVATE
         SQLite::SQLite3
         Qt6::Widgets
-	sqlite_orm::sqlite_orm
+	      sqlite_orm::sqlite_orm
         ${TAGLIB_LIBRARIES}
 )
