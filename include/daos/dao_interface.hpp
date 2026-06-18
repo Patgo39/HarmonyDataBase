@@ -10,7 +10,7 @@ class DaoInterface{
     public:
 
     virtual std::vector<T> findAll() = 0;
-    virtual std::optional<T> get(int id_T) = 0;
+    virtual std::optional<T> getByID(int) = 0;
     virtual int save(T) = 0;
     virtual void deleteById(int) = 0;
     virtual void update(int, T);
