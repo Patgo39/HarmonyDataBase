@@ -13,7 +13,8 @@ class DaoInterface{
     virtual std::optional<T> getByID(int) = 0;
     virtual int save(T) = 0;
     virtual void deleteById(int) = 0;
-    virtual void update(int, T);
+    virtual void update(int, T) = 0;
+    virtual bool exists(int) = 0;
 
 };
 

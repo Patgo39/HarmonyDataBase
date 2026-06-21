@@ -2,18 +2,33 @@
 #define ALBUM_HPP
 
 #include <string>
-#include <optional>
+#include <chrono>
+#include <stdexcept>
 
 class Album{
-    public:
-    int id_album = 0;
-    std::optional<std::string> path;
-    std::optional<std::string> name;
-    std::optional<int> year;
+    int id_album;
+    std::string path;
+    std::string name;
+    int year;
 
-    Album() = default;
-    Album(std::string _path, std::string _name, int _year);
-    Album(int _id_album, std::string _path, std::string _name, int _year);
+    public:
+    Album();
+
+    int getIdAlbum() const;
+    void setIdAlbum(int idAlbum);
+
+    std::string getPath() const;
+    void setPath(const std::string &path_);
+
+    std::string getName() const;
+    void setName(const std::string &name_);
+
+    int getYear() const;
+    void setYear(int year_);
+
+    
+    
+
 };
 
-#endif
+#endif  

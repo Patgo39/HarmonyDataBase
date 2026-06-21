@@ -1,10 +1,9 @@
 #include "../../include/db/database_conection_manager.hpp"
 
 DatabaseConectionManager::DatabaseConectionManager() : db(nullptr, &sqlite3_close){
-
   // Configuración de dirección de almacenamiento
   db_name = "database.sqlite3";
-  bool create_tables;
+  bool create_tables = false;
   std::string home_dir = std::string(getenv("HOME"));
   std::string folder_path = home_dir + "/.local/share/harmonydb";
   db_path = folder_path +"/"+ db_name;
@@ -21,17 +20,18 @@ DatabaseConectionManager::DatabaseConectionManager() : db(nullptr, &sqlite3_clos
   }
   
   // Abrir la base de datos
-  sqlite3 *dbraw = db.get();
-  if(sqlite3_open(db_path.c_str(), &dbraw)){
+  sqlite3 *dbraw = nullptr;
+  if(sqlite3_open(db_path.c_str(), &dbraw) != SQLITE_OK){
     throw std::runtime_error("Error opening the database.");
     
-  }else{
-    if(create_tables){
+  }
+  db.reset(dbraw);
+  if(create_tables){
       createTables();
     }
-  }
-  
 }
+  
+
 
 DatabaseConectionManager& DatabaseConectionManager::getInstance(){
   static DatabaseConectionManager instancePtr;
