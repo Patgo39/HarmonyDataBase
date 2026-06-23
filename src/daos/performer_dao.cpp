@@ -4,12 +4,64 @@ PerformerDao::PerformerDao() :
     storage(
         sqlite_orm::make_storage(DatabaseConectionManager::getInstance().getDatabasePath(),
                   sqlite_orm::make_table("performers",
-                     sqlite_orm::make_column("id_performer", &Performer::id_performer, 
+                     sqlite_orm::make_column("id_performer", 
+                        &Performer::getIdPerformer,
+                        &Performer::setIdPerformer, 
             sqlite_orm::primary_key().autoincrement()),
-                sqlite_orm::make_column("id_type",
-                             &Performer::id_type),
-                sqlite_orm::make_column("name",
-                             &Performer::name),
-                sqlite_orm::foreign_key(&Performer::id_type).references(&Type::id_type)
-            .on_delete.restrict_().on_update.cascade()))
-    ){}
+                     sqlite_orm::make_column("id_type",
+                            &Performer::getIdType,
+                            &Performer::setIdType),
+                     sqlite_orm::make_column("name",
+                            &Performer::getName,
+                            &Performer::setName),
+                     sqlite_orm::foreign_key(&Performer::getIdType).
+                     references(&Type::id_type).on_delete.restrict_().on_update.cascade()))
+    )
+{}
+
+std::vector<Performer> PerformerDao::findAll() {
+    std::vector performers = storage.get_all<Performer>();
+    return performers;
+}
+
+std::optional<Performer> PerformerDao::getByID(int id_performer) {
+    std::vector<Performer> performers = storage.get_all<Performer>(
+                sqlite_orm::where(sqlite_orm::eq(&Performer::getIdPerformer, id_performer)));
+
+    std::optional<Performer> performer = std::nullopt;
+
+    if(performers.size() == 1) {
+        performer = performers[0];
+    }
+
+    return performer;
+}
+    
+int PerformerDao::save(Performer performer) {
+    int id_performer = storage.insert(performer);
+    return id_performer;
+}
+    
+void PerformerDao::deleteById(int id_performer) {
+    if(!exists(id_performer)) {
+        throw IdNotFoundException("Error: Non-existent Performer to delete.");
+    }
+
+    storage.remove<Performer>(id_performer);
+}
+    
+void PerformerDao::update(int id_performer, Performer performer) {
+    if(!exists(id_performer)) {
+        throw IdNotFoundException("Error: Non-existent Performer to update.");
+    }
+
+    performer.setIdPerformer(id_performer);
+    storage.update(performer);
+}
+    
+bool PerformerDao::exists(int id_performer) {
+    std::vector<Performer> performers = storage.get_all<Performer>(
+    sqlite_orm::where(sqlite_orm::eq(&Performer::getIdPerformer, id_performer)));
+    
+    return performers.size() == 1;
+}

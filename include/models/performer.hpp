@@ -2,17 +2,24 @@
 #define PERFORMER_HPP
 
 #include <string>
-#include <optional>
+#include <stdexcept>
 
 class Performer {
-public:
-    int id_performer = 0;
-    std::optional<int> id_type;
-    std::optional<std::string> name;
+    int id_performer;
+    int id_type;
+    std::string name;
 
-    Performer() = default;
-    Performer(int _id_type, std::string _name);
-    Performer(int _id_performer, int _id_type, std::string _name);
+public:
+    Performer();
+
+    int getIdPerformer() const;
+    void setIdPerformer(int idPerformer_);
+
+    int getIdType() const;
+    void setIdType(int idType_);
+
+    std::string getName() const;
+    void setName(const std::string &name_);
 };
 
 #endif

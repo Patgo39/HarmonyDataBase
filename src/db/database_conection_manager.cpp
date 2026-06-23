@@ -47,9 +47,9 @@ CREATE TABLE IF NOT EXISTS types (
     description   TEXT
 );
 
-INSERT INTO types VALUES(0,'Person');
-INSERT INTO types VALUES(1,'Group');
-INSERT INTO types VALUES(2,'Unknown');
+INSERT INTO types VALUES(1,'Person');
+INSERT INTO types VALUES(2,'Group');
+INSERT INTO types VALUES(3,'Unknown');
 
 CREATE TABLE IF NOT EXISTS performers (
     id_performer  INTEGER PRIMARY KEY,

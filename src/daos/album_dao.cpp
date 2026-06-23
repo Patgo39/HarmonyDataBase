@@ -47,17 +47,22 @@ void AlbumDao::deleteById(int _id_album){
 	if(!exists(_id_album)){
 		throw IdNotFoundException("Error: Non-existent Album to delete.");
 	}
+
+	storage.remove<Album>(_id_album);
 }
 
 void AlbumDao::update(int _id_album, Album album){
 	if(!exists(_id_album)){
 		throw IdNotFoundException("Error: Non-existent Album to update.");
 	}
+
+	album.setIdAlbum(_id_album);
+	storage.update(album);
 }
 
- bool AlbumDao::exists(int _id_album){
+bool AlbumDao::exists(int _id_album){
 	std::vector<Album> album = storage.get_all<Album>(
 		sqlite_orm::where(sqlite_orm::eq(&Album::getIdAlbum, _id_album)));
 	
-		return album.size() == 1;
- }
+	return album.size() == 1;
+}

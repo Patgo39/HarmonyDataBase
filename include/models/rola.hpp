@@ -2,22 +2,48 @@
 #define ROLA_HPP
 
 #include <string>
-#include <optional>
+#include <stdexcept>
+#include <chrono>
+#include <ctime>
 
 class Rola {
-public:
-    int id_rola = 0;
-    std::optional<int> id_performer;
-    std::optional<int> id_album;
-    std::optional<std::string> path;
-    std::optional<std::string> title;
-    std::optional<int> track;
-    std::optional<int> year;
-    std::optional<std::string> genre;
+    int id_rola;
+    int id_performer;
+    int id_album;
+    std::string path;
+    std::string title;
+    int track;
+    int year;
+    std::string genre;
 
-    Rola() = default;
-    Rola(int _id_performer, int _id_album, std::string _path, std::string _title, int _track, int _year, std::string _genre);
-    Rola(int _id_rola, int _id_performer, int _id_album, std::string _path, std::string _title, int _track, int _year, std::string _genre);
+    int getCurrentYear() const;
+
+public:
+    Rola();
+
+    int getIdRola() const;
+    void setIdRola(int idRola_);
+
+    int getIdPerformer() const;
+    void setIdPerformer(int idPerformer_);
+
+    int getIdAlbum() const;
+    void setIdAlbum(int idAlbum_);
+
+    std::string getPath() const;
+    void setPath(const std::string &path_);
+
+    std::string getTitle() const;
+    void setTitle(const std::string &title_);
+
+    int getTrack() const;
+    void setTrack(int track_);
+
+    int getYear() const;
+    void setYear(int year_);
+
+    std::string getGenre() const;
+    void setGenre(const std::string &genre_);
 };
 
 #endif

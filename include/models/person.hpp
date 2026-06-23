@@ -2,21 +2,39 @@
 #define PERSON_HPP
 
 #include <string>
-#include <optional>
+#include <stdexcept>
+#include <regex>
+#include <iomanip>
+#include <sstream>
+#include <ctime>
 
-class Person{
+class Person {
+    int id_person;
+    std::string stage_name;
+    std::string real_name;
+    std::string birth_date;
+    std::string death_date;
+
+    void validateDate(const std::string &date) const;
+    std::string getCurrentDate() const;
 
 public:
-  int id_person = 0;
-  std::optional<std::string> stage_name;
-  std::optional<std::string> real_name;
-  std::optional<std::string> birth_date;
-  std::optional<std::string> death_date;
-  
-  Person() = default;
-  Person(std::string _stage_name, std::string _real_name, std::string _birth_date, std::string _death_date);
-  Person(int _id_person, std::string _stage_name, std::string _real_name, std::string _birth_date, std::string _death_date);
-  
+    Person();
+
+    int getIdPerson() const;
+    void setIdPerson(int idPerson_);
+
+    std::string getStageName() const;
+    void setStageName(const std::string &stageName_);
+
+    std::string getRealName() const;
+    void setRealName(const std::string &realName_);
+
+    std::string getBirthDate() const;
+    void setBirthDate(const std::string &birthDate_);
+
+    std::string getDeathDate() const;
+    void setDeathDate(const std::string &deathDate_);
 };
 
 #endif

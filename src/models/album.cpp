@@ -19,6 +19,9 @@ int Album::getIdAlbum() const{
 }
 
 void Album::setIdAlbum(int idAlbum){
+    if(idAlbum <= 0){
+        throw std::invalid_argument("Id can't be zero or negative.");
+    }
     id_album = idAlbum;
 }
 
@@ -30,7 +33,7 @@ void Album::setPath(const std::string &path_){
     if(path_.empty()){
         path = "Unknown";
     }else{
-        this->path = path;
+        this->path = path_;
     }
 
 }
@@ -59,7 +62,7 @@ void Album::setYear(int year_){
     int current_year = local_date->tm_year+1900;
 
     if(year < 1000 || year > current_year){
-        throw std::invalid_argument("Year has an invalid format.");
+        throw std::invalid_argument("Invalid value for year, year must be {YYYY}.");
     }
     
 }

@@ -2,18 +2,35 @@
 #define GROUP_HPP
 
 #include <string>
-#include <optional>
+#include <stdexcept>
+#include <regex>
+#include <iomanip>
+#include <sstream>
+#include <ctime>
 
 class Group {
-public:
-    int id_group = 0;
-    std::optional<std::string> name;
-    std::optional<std::string> start_date;
-    std::optional<std::string> end_date;
+    int id_group;
+    std::string name;
+    std::string start_date;
+    std::string end_date;
 
-    Group() = default;
-    Group(std::string _name, std::string _start_date, std::string _end_date);
-    Group(int _id_group, std::string _name, std::string _start_date, std::string _end_date);
+    void validateDate(const std::string &date) const;
+    std::string getCurrentDate() const;
+
+public:
+    Group();
+
+    int getIdGroup() const;
+    void setIdGroup(int idGroup);
+
+    std::string getName() const;
+    void setName(const std::string &name_);
+
+    std::string getStartDate() const;
+    void setStartDate(const std::string &startDate_);
+
+    std::string getEndDate() const;
+    void setEndDate(const std::string &endDate_);
 };
 
 #endif
