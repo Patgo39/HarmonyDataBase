@@ -9,7 +9,7 @@ include(FetchContent)
 
 find_package(ZLIB REQUIRED)
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
-find_package(SQLite3 REQUIRED)
+#find_package(SQLite3 REQUIRED)
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(TAGLIB REQUIRED taglib)
 
@@ -19,9 +19,19 @@ FetchContent_Declare(
   GIT_TAG        v1.9.1
 )
 
-set(SQLITE_ORM_BUILD_TESTS OFF CACHE INTERNAL "")
+FetchContent_Declare(
+  googletest
+  GIT_REPOSITORY https://github.com/google/googletest.git
+  GIT_TAG        v1.17.0
+)
 
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
+
+set(SQLITE_ORM_BUILD_TESTS OFF CACHE INTERNAL "")
 FetchContent_MakeAvailable(sqlite_orm)
+
+add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/dependencies/SQLiteCpp)
 
 add_executable(harmony_bd
   src/main.cpp
@@ -43,7 +53,9 @@ add_executable(harmony_bd
   src/daos/person_dao.cpp
   src/daos/rola_dao.cpp 
   src/daos/type_dao.cpp 
+
 )
+
 
 set_target_properties(harmony_bd PROPERTIES
     AUTOMOC ON
@@ -59,8 +71,24 @@ target_include_directories(harmony_bd
 
 target_link_libraries(harmony_bd
     PRIVATE
-        SQLite::SQLite3
+        #SQLite::SQLite3
         Qt6::Widgets
-	      sqlite_orm::sqlite_orm
+	    sqlite_orm::sqlite_orm
+        SQLiteCpp
         ${TAGLIB_LIBRARIES}
 )
+
+enable_testing()
+
+add_executable(
+    dao_test
+    tests/album_dao_test.cpp
+)
+
+target_link_libraries(
+    dao_test 
+    GTest::gtest_main
+)
+
+include(GoogleTest)
+gtest_discover_tests(dao_test)

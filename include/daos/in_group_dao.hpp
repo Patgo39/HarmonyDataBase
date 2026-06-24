@@ -43,6 +43,7 @@ public:
     bool existsByIdPerson(int id_person);
     bool existsByIdGroup(int id_group);
     bool existsComposite(int id_person, int id_group);
+    
 };
 
 #endif
