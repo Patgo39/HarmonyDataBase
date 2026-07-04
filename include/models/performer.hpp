@@ -1,25 +1,25 @@
 #ifndef PERFORMER_HPP
 #define PERFORMER_HPP
 
-#include <string>
 #include <stdexcept>
+#include <string>
 
 class Performer {
-    int id_performer;
-    int id_type;
-    std::string name;
+  int id_performer;
+  int id_type;
+  std::string name;
 
 public:
-    Performer();
+  Performer();
 
-    int getIdPerformer() const;
-    void setIdPerformer(int idPerformer_);
+  int getIdPerformer() const;
+  void setIdPerformer(int idPerformer_);
 
-    int getIdType() const;
-    void setIdType(int idType_);
+  int getIdType() const;
+  void setIdType(int idType_);
 
-    std::string getName() const;
-    void setName(const std::string &name_);
+  std::string getName() const;
+  void setName(const std::string &name_);
 };
 
 #endif

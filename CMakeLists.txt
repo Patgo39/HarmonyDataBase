@@ -33,8 +33,8 @@ FetchContent_MakeAvailable(sqlite_orm)
 
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/dependencies/SQLiteCpp)
 
-add_executable(harmony_bd
-  src/main.cpp
+set(SRC_FILES
+  #DB
   src/db/database_conection_manager.cpp
   # models
   src/models/album.cpp 
@@ -53,6 +53,12 @@ add_executable(harmony_bd
   src/daos/person_dao.cpp
   src/daos/rola_dao.cpp 
   src/daos/type_dao.cpp 
+
+)
+
+add_executable(harmony_bd
+  src/main.cpp
+  ${SRC_FILES}
 
 )
 
@@ -80,14 +86,16 @@ target_link_libraries(harmony_bd
 
 enable_testing()
 
-add_executable(
-    dao_test
+add_executable(dao_test
+    #Tests
     tests/album_dao_test.cpp
+    ${SRC_FILES}
 )
 
 target_link_libraries(
     dao_test 
     GTest::gtest_main
+    sqlite_orm::sqlite_orm
 )
 
 include(GoogleTest)
