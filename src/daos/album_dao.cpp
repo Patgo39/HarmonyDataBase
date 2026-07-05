@@ -17,10 +17,7 @@ std::optional<Album> AlbumDao::getByID(int _id_album) {
       sqlite_orm::where(sqlite_orm::eq(&Album::getIdAlbum, _id_album)));
 
   std::optional<Album> album = std::nullopt;
-  if (albums.size() == 1) {
-
-    album = albums[0];
-  }
+  if (albums.size() == 1) album = albums[0];
 
   return album;
 }

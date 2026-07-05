@@ -77,18 +77,18 @@ target_include_directories(harmony_bd
 
 target_link_libraries(harmony_bd
     PRIVATE
-        #SQLite::SQLite3
-        Qt6::Widgets
+      #SQLite::SQLite3
+      Qt6::Widgets
 	    sqlite_orm::sqlite_orm
-        SQLiteCpp
-        ${TAGLIB_LIBRARIES}
+      SQLiteCpp
+      ${TAGLIB_LIBRARIES}
 )
 
 enable_testing()
 
 add_executable(dao_test
     #Tests
-    tests/album_dao_test.cpp
+    tests/test_daos/album_dao_test.cpp
     ${SRC_FILES}
 )
 
