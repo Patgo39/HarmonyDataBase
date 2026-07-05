@@ -78,3 +78,10 @@ TEST_F(AlbumDaoTest, test_update){
   }
 
 }
+
+TEST_F(AlbumDaoTest, test_exists){
+  ASSERT_EQ(true, dao_ptr->exists(id_album))
+    <<"The album does not exists.";
+  ASSERT_EQ(false, dao_ptr->exists(-1))
+  << "exists function threw a false positive.";
+}
