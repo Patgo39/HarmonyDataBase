@@ -54,6 +54,8 @@ set(SRC_FILES
   src/daos/rola_dao.cpp 
   src/daos/type_dao.cpp 
 
+  #utils
+  src/utils/string_utils.cpp
 )
 
 add_executable(harmony_bd
@@ -71,8 +73,8 @@ set_target_properties(harmony_bd PROPERTIES
 
 target_include_directories(harmony_bd
     PRIVATE
-        include
-        ${TAGLIB_INCLUDE_DIRS}
+    include
+    ${TAGLIB_INCLUDE_DIRS}
 )
 
 target_link_libraries(harmony_bd
@@ -88,12 +90,12 @@ enable_testing()
 
 add_executable(dao_test
     #Tests
-    tests/test_daos/album_dao_test.cpp
+    tests/test_daos/test_album_dao.cpp
+    tests/test_models/test_album.cpp
     ${SRC_FILES}
 )
 
-target_link_libraries(
-    dao_test 
+target_link_libraries(dao_test 
     GTest::gtest_main
     sqlite_orm::sqlite_orm
 )

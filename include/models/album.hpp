@@ -4,6 +4,7 @@
 #include <chrono>
 #include <stdexcept>
 #include <string>
+#include "../utils/string_utils.hpp"
 
 class Album {
   int id_album;

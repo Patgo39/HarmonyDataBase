@@ -1,10 +1,9 @@
 #include "../../include/daos/album_dao.hpp"
 #include <gtest/gtest.h>
 #include <memory>
-#include <sqlite3.h>
 #include <string>
 
-class AlbumDaoTest : public testing::Test {
+class TestAlbumDao : public testing::Test {
 
 protected:
   std::unique_ptr<AlbumDao> dao_ptr = std::make_unique<AlbumDao>();
@@ -25,11 +24,9 @@ protected:
     dao_ptr = std::make_unique<AlbumDao>();
     id_album = dao_ptr->save(album);
   }
-
-  void TearDown() override {}
 };
 
-TEST_F(AlbumDaoTest, get_by_id) {
+TEST_F(TestAlbumDao, test_get_by_id) {
   std::optional<Album> queried_album = dao_ptr->getByID(id_album);
 
   ASSERT_EQ(true, queried_album.has_value()) << "Album is nullopt.";
@@ -44,7 +41,7 @@ TEST_F(AlbumDaoTest, get_by_id) {
   }
 }
 
-TEST_F(AlbumDaoTest, test_findAll){
+TEST_F(TestAlbumDao, test_findAll){
   std::vector<Album> album_vector = dao_ptr->findAll();
 
   ASSERT_EQ(album_vector.size(), 1) 
@@ -54,7 +51,7 @@ TEST_F(AlbumDaoTest, test_findAll){
 
 }
 
-TEST_F(AlbumDaoTest, test_update){
+TEST_F(TestAlbumDao, test_update){
   Album album2;
   album2.setIdAlbum(5);
   album2.setName("The dark side of the moon");
@@ -65,7 +62,7 @@ TEST_F(AlbumDaoTest, test_update){
 
   std::optional<Album> queried_album = dao_ptr->getByID(id_album);
 
-  ASSERT_EQ(true, queried_album.has_value()) << "Album is nullopt.";
+  ASSERT_TRUE(queried_album.has_value()) << "Album is nullopt.";
   ASSERT_EQ(1, dao_ptr->findAll().size()) << "The albums was not updated; instead a new album was inserted.";
 
   if (queried_album.has_value()) {
@@ -79,14 +76,21 @@ TEST_F(AlbumDaoTest, test_update){
 
 }
 
-TEST_F(AlbumDaoTest, test_exists){
+TEST_F(TestAlbumDao, test_exists){
   ASSERT_EQ(true, dao_ptr->exists(id_album))
     <<"The album does not exists.";
   ASSERT_EQ(false, dao_ptr->exists(-1))
   << "exists function threw a false positive.";
 }
 
-TEST_F(AlbumDaoTest, test_delete){
+TEST_F(TestAlbumDao, test_delete){
+
+  try{
+    dao_ptr->deleteById(-5);
+    ASSERT_FALSE(true)
+      <<"Not IdNotFoundException threw.";
+  }catch(IdNotFoundException){}
+
   dao_ptr->deleteById(id_album);
 
   ASSERT_EQ(0, dao_ptr->findAll().size())

@@ -20,20 +20,20 @@ void Album::setIdAlbum(int idAlbum) {
 std::string Album::getPath() const { return path; }
 
 void Album::setPath(const std::string &path_) {
-  if (path_.empty()) {
+  if (str_utils::is_white_spaces(path_)) {
     path = "Unknown";
   } else {
-    this->path = path_;
+    this->path = str_utils::delete_extreme_whitespaces(path_);
   }
 }
 
 std::string Album::getName() const { return name; }
 
 void Album::setName(const std::string &name_) {
-  if (name_.empty()) {
+  if (str_utils::is_white_spaces(name_)) {
     name = "Unknown";
   } else {
-    this->name = name_;
+    name = str_utils::delete_extreme_whitespaces(name_);
   }
 }
 
@@ -47,7 +47,7 @@ void Album::setYear(int year_) {
   int current_year = local_date->tm_year + 1900;
 
   if (year < 1000 || year > current_year) {
-    throw std::invalid_argument("Invalid value for year, year must be {YYYY}.");
+    throw std::invalid_argument("Invalid value for year, year must be {YYYY} > 1000 && {YYYY} < current_year.");
   }
 
   year = year_;
