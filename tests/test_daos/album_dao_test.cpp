@@ -85,3 +85,12 @@ TEST_F(AlbumDaoTest, test_exists){
   ASSERT_EQ(false, dao_ptr->exists(-1))
   << "exists function threw a false positive.";
 }
+
+TEST_F(AlbumDaoTest, test_delete){
+  dao_ptr->deleteById(id_album);
+
+  ASSERT_EQ(0, dao_ptr->findAll().size())
+    <<"There more albums in the database than expected in delete test.";
+  ASSERT_EQ(false, dao_ptr->exists(id_album))
+    <<"Album was not correctly deleted.";
+}
