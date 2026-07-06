@@ -69,3 +69,25 @@ TEST(TestGroup, test_start_date){
   }catch(std::invalid_argument){}
 
 }
+
+TEST(TestGroup, test_end_date){
+  Group group;
+  
+  try{
+    group.setEndDate("68768-321-321");
+    FAIL() << "An invalid format for the date was accepted.";
+  }catch(std::invalid_argument){}
+
+  try{
+    group.setEndDate("\t\t\t\n");
+    FAIL() << "Date can't be empty or full of blank spaces.";
+  }catch(std::invalid_argument){}
+
+  int year = time_utils::get_current_year()+1;
+  std::string date = std::format("{}-12-12", year);
+
+  try{
+    group.setEndDate(date);
+    FAIL() << "Date can't be a date greater than current date.";
+  }catch(std::invalid_argument){}
+}
