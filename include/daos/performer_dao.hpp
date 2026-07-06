@@ -6,7 +6,6 @@
 #include "../models/performer.hpp"
 #include "../models/type.hpp"
 #include "dao_interface.hpp"
-#include <sqlite_orm/sqlite_orm.h>
 
 class PerformerDao : public DaoInterface<Performer> {
   std::shared_ptr<harmony_storage> storage;

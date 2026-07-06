@@ -5,7 +5,6 @@
 #include "../exceptions/id_not_found_exception.hpp"
 #include "../models/person.hpp"
 #include "dao_interface.hpp"
-#include <sqlite_orm/sqlite_orm.h>
 
 class PersonDao : public DaoInterface<Person> {
   std::shared_ptr<harmony_storage> storage;

@@ -1,10 +1,8 @@
 #ifndef PERSON_HPP
 #define PERSON_HPP
 
-#include <ctime>
-#include <iomanip>
-#include <regex>
-#include <sstream>
+#include "../utils/string_utils.hpp"
+#include "../utils/time_utils.hpp"
 #include <stdexcept>
 #include <string>
 
@@ -14,9 +12,6 @@ class Person {
   std::string real_name;
   std::string birth_date;
   std::string death_date;
-
-  void validateDate(const std::string &date) const;
-  std::string getCurrentDate() const;
 
 public:
   Person();

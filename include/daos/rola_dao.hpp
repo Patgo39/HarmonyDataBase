@@ -7,7 +7,6 @@
 #include "../models/performer.hpp"
 #include "../models/rola.hpp"
 #include "dao_interface.hpp"
-#include <sqlite_orm/sqlite_orm.h>
 
 class RolaDao : public DaoInterface<Rola> {
   std::shared_ptr<harmony_storage> storage;

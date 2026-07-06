@@ -1,27 +1,7 @@
 #include "../../include/models/group.hpp"
 
-// Método auxiliar para obtener la fecha del sistema en formato YYYY-MM-DD
-std::string Group::getCurrentDate() const {
-  std::time_t now = std::time(nullptr);
-  std::tm localTime = *std::localtime(&now);
-  std::stringstream ss;
-  ss << std::put_time(&localTime, "%Y-%m-%d");
-  return ss.str();
-}
-
-// Método auxiliar para validar meses (01-12) y días (01-31)
-void Group::validateDate(const std::string &date) const {
-  static const std::regex date_pattern(
-      R"(^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$)");
-
-  if (!std::regex_match(date, date_pattern)) {
-    throw std::invalid_argument("Year has an invalid format. Must be "
-                                "YYYY-MM-DD with valid month and day.");
-  }
-}
-
 Group::Group() : id_group(0), name("Unknown") {
-  std::string current = getCurrentDate();
+  std::string current = time_utils::get_current_date();
   start_date = current;
   end_date = current;
 }
@@ -38,23 +18,27 @@ void Group::setIdGroup(int idGroup) {
 std::string Group::getName() const { return name; }
 
 void Group::setName(const std::string &name_) {
-  if (name_.empty()) {
+  if (str_utils::is_white_spaces(name_)) {
     name = "Unknown";
   } else {
-    name = name_;
+    name = str_utils::delete_extreme_whitespaces(name_);
   }
 }
 
 std::string Group::getStartDate() const { return start_date; }
 
 void Group::setStartDate(const std::string &startDate_) {
-  validateDate(startDate_);
+  if(!time_utils::is_date_string_valid(startDate_)){
+    throw std::invalid_argument("Start date does not comply with the format {YYYY-MM-DD}");
+  }
   start_date = startDate_;
 }
 
 std::string Group::getEndDate() const { return end_date; }
 
 void Group::setEndDate(const std::string &endDate_) {
-  validateDate(endDate_);
+  if(!time_utils::is_date_string_valid(endDate_)){
+    throw std::invalid_argument("Start date does not comply with the format {YYYY-MM-DD}");
+  }
   end_date = endDate_;
 }

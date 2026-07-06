@@ -1,6 +1,7 @@
 #ifndef PERFORMER_HPP
 #define PERFORMER_HPP
 
+#include "../utils/string_utils.hpp"
 #include <stdexcept>
 #include <string>
 

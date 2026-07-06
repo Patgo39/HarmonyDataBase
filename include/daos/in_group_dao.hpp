@@ -9,7 +9,6 @@
 #include "../models/group.hpp"
 #include "../models/in_group.hpp"
 #include "../models/person.hpp"
-#include <sqlite_orm/sqlite_orm.h>
 #include <utility>
 
 class InGroupDao {

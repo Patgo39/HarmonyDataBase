@@ -1,8 +1,8 @@
 #ifndef ROLA_HPP
 #define ROLA_HPP
 
-#include <chrono>
-#include <ctime>
+#include "../utils/time_utils.hpp"
+#include "../utils/string_utils.hpp"
 #include <stdexcept>
 #include <string>
 
@@ -15,8 +15,6 @@ class Rola {
   int track;
   int year;
   std::string genre;
-
-  int getCurrentYear() const;
 
 public:
   Rola();

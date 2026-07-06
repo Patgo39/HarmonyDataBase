@@ -1,21 +1,16 @@
 #ifndef GROUP_HPP
 #define GROUP_HPP
 
+#include "../utils/time_utils.hpp"
+#include "../utils/string_utils.hpp"
 #include <string>
 #include <stdexcept>
-#include <regex>
-#include <iomanip>
-#include <sstream>
-#include <ctime>
 
 class Group {
     int id_group;
     std::string name;
     std::string start_date;
     std::string end_date;
-
-    void validateDate(const std::string &date) const;
-    std::string getCurrentDate() const;
 
 public:
     Group();

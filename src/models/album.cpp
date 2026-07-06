@@ -1,12 +1,11 @@
 #include "../../include/models/album.hpp"
 
-Album::Album() : id_album(0), path("Unknown"), name("Unknown"), year(0) {
-  auto now = std::chrono::system_clock::now();
-  std::time_t time_c = std::chrono::system_clock::to_time_t(now);
-  std::tm *local_date = std::localtime(&time_c);
-  int current_year = local_date->tm_year + 1900;
-  year = current_year;
-}
+Album::Album() : 
+  id_album(0), 
+  path("Unknown"), 
+  name("Unknown"), 
+  year(time_utils::get_current_year()) 
+{}
 
 int Album::getIdAlbum() const { return id_album; }
 
@@ -40,13 +39,7 @@ void Album::setName(const std::string &name_) {
 int Album::getYear() const { return year; }
 
 void Album::setYear(int year_) {
-
-  auto now = std::chrono::system_clock::now();
-  std::time_t time_c = std::chrono::system_clock::to_time_t(now);
-  std::tm *local_date = std::localtime(&time_c);
-  int current_year = local_date->tm_year + 1900;
-
-  if (year < 1000 || year > current_year) {
+  if (!time_utils::is_year_valid(year_)) {
     throw std::invalid_argument("Invalid value for year, year must be {YYYY} > 1000 && {YYYY} < current_year.");
   }
 

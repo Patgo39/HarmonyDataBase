@@ -1,16 +1,15 @@
 #include "../../include/models/rola.hpp"
 
-int Rola::getCurrentYear() const {
-  auto now = std::chrono::system_clock::now();
-  std::time_t time_c = std::chrono::system_clock::to_time_t(now);
-  std::tm *local_date = std::localtime(&time_c);
-  return local_date->tm_year + 1900;
-}
+Rola::Rola() : 
+  id_rola(0),
+  id_album(0),
+  id_performer(0),
+  path("Unknown"),
+  title("Unknown"),
+  track(0),
+  year(time_utils::get_current_year()),
+  genre("Unknown"){
 
-Rola::Rola()
-    : id_rola(0), id_performer(0), id_album(0), path("Unknown"),
-      title("Unknown"), track(0), genre("Unknown") {
-  year = getCurrentYear();
 }
 
 int Rola::getIdRola() const { return id_rola; }
@@ -51,11 +50,19 @@ void Rola::setIdAlbum(int idAlbum_) {
 }
 
 void Rola::setPath(const std::string &path_) {
-  path = path_.empty() ? "Unknown" : path_;
+  if (str_utils::is_white_spaces(path_)) {
+    path = "Unknown";
+  } else {
+    path = str_utils::delete_extreme_whitespaces(path_);
+  }
 }
 
 void Rola::setTitle(const std::string &title_) {
-  title = title_.empty() ? "Unknown" : title_;
+  if (str_utils::is_white_spaces(title_)) {
+    title = "Unknown";
+  } else {
+    title = str_utils::delete_extreme_whitespaces(title_);
+  }
 }
 
 void Rola::setTrack(int track_) {
@@ -66,12 +73,16 @@ void Rola::setTrack(int track_) {
 }
 
 void Rola::setYear(int year_) {
-  if (year_ < 1000 || year_ > getCurrentYear()) {
+  if (time_utils::is_year_valid(year_)) {
     throw std::invalid_argument("Year has an invalid format.");
   }
   year = year_;
 }
 
 void Rola::setGenre(const std::string &genre_) {
-  genre = genre_.empty() ? "Unknown" : genre_;
+  if (str_utils::is_white_spaces(genre_)) {
+    genre = "Unknown";
+  } else {
+    genre = str_utils::delete_extreme_whitespaces(genre_);
+  }
 }

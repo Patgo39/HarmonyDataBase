@@ -2,14 +2,14 @@
 cmake_minimum_required(VERSION 3.20)
 project(HarmonyBD VERSION 1.0 LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 include(FetchContent)
 
 find_package(ZLIB REQUIRED)
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
-#find_package(SQLite3 REQUIRED)
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(TAGLIB REQUIRED taglib)
 
@@ -51,11 +51,12 @@ set(SRC_FILES
   src/daos/in_group_dao.cpp 
   src/daos/performer_dao.cpp 
   src/daos/person_dao.cpp
-  src/daos/rola_dao.cpp 
+  src/daos/rola_dao.cpp   
   src/daos/type_dao.cpp 
 
   #utils
   src/utils/string_utils.cpp
+  src/utils/time_utils.cpp
 )
 
 add_executable(harmony_bd
@@ -79,7 +80,6 @@ target_include_directories(harmony_bd
 
 target_link_libraries(harmony_bd
     PRIVATE
-      #SQLite::SQLite3
       Qt6::Widgets
 	    sqlite_orm::sqlite_orm
       SQLiteCpp
@@ -92,6 +92,7 @@ add_executable(dao_test
     #Tests
     tests/test_daos/test_album_dao.cpp
     tests/test_models/test_album.cpp
+    tests/test_models/test_group.cpp
     ${SRC_FILES}
 )
 

@@ -5,7 +5,6 @@
 #include "../exceptions/id_not_found_exception.hpp"
 #include "../models/group.hpp"
 #include "dao_interface.hpp"
-#include <sqlite_orm/sqlite_orm.h>
 
 class GroupDao : public DaoInterface<Group> {
   std::shared_ptr<harmony_storage> storage;
