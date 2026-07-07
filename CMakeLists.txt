@@ -89,8 +89,13 @@ target_link_libraries(harmony_bd
 enable_testing()
 
 add_executable(dao_test
-    #Tests
+    #Tests daos
     tests/test_daos/test_album_dao.cpp
+    tests/test_daos/test_group_dao.cpp
+    tests/test_daos/test_in_group_dao.cpp
+    tests/test_daos/test_performer_dao.cpp
+    tests/test_daos/test_person_dao.cpp
+    tests/test_daos/test_rola_dao.cpp
 
     # Test models
     tests/test_models/test_album.cpp
