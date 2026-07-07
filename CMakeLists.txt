@@ -91,8 +91,13 @@ enable_testing()
 add_executable(dao_test
     #Tests
     tests/test_daos/test_album_dao.cpp
+
+    # Test models
     tests/test_models/test_album.cpp
     tests/test_models/test_group.cpp
+    tests/test_models/test_performer.cpp
+    tests/test_models/test_person.cpp
+    tests/test_models/test_rola.cpp
     ${SRC_FILES}
 )
 

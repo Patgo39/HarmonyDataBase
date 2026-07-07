@@ -73,7 +73,7 @@ void Rola::setTrack(int track_) {
 }
 
 void Rola::setYear(int year_) {
-  if (time_utils::is_year_valid(year_)) {
+  if (!time_utils::is_year_valid(year_)) {
     throw std::invalid_argument("Year has an invalid format.");
   }
   year = year_;
