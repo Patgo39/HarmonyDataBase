@@ -52,13 +52,12 @@ TEST_F(TestAlbumDao, test_findAll){
 }
 
 TEST_F(TestAlbumDao, test_update){
-  Album album2;
-  album2.setIdAlbum(5);
-  album2.setName("The dark side of the moon");
-  album2.setPath(":Memory:/Path/2");
-  album2.setYear(1973);
+  album.setIdAlbum(5);
+  album.setName("The dark side of the moon");
+  album.setPath(":Memory:/Path/2");
+  album.setYear(1973);
 
-  dao_ptr->update(id_album, album2);
+  dao_ptr->update(id_album, album);
 
   std::optional<Album> queried_album = dao_ptr->getByID(id_album);
 

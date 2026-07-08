@@ -1,6 +1,9 @@
 #ifndef IN_GROUP_DAO_HPP
 #define IN_GROUP_DAO_HPP
 
+// Suprime las advertencias de funciones deprecadas en la biblioteca sqlite_orm
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
 #include "../daos/group_dao.hpp"
 #include "../daos/person_dao.hpp"
 #include "../db/database_conection_manager.hpp"

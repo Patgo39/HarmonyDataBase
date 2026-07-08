@@ -1,6 +1,9 @@
 #ifndef TYPE_DAO_HPP
 #define TYPE_DAO_HPP
 
+// Suprime las advertencias de funciones deprecadas en la biblioteca sqlite_orm
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
 #include "../db/database_conection_manager.hpp"
 #include "../exceptions/id_not_found_exception.hpp"
 #include "../models/type.hpp"
