@@ -6,6 +6,28 @@ GroupDao::GroupDao() {
   storage = db.getHarmonyStorage();
 }
 
+std::optional<Performer> GroupDao::getPerformerByID(int id_performer){
+  std::vector<Performer> performers =
+      storage->get_all<Performer>(sqlite_orm::where(
+          sqlite_orm::eq(&Performer::getIdPerformer, id_performer)));
+
+  std::optional<Performer> performer = std::nullopt;
+
+  if (performers.size() == 1) {
+    performer = performers[0];
+  }
+
+  return performer;
+}
+
+bool GroupDao::existsPerformer(int id_performer){
+  std::vector<Performer> performers =
+      storage->get_all<Performer>(sqlite_orm::where(
+          sqlite_orm::eq(&Performer::getIdPerformer, id_performer)));
+
+  return performers.size() == 1;
+}
+
 std::vector<Group> GroupDao::findAll() {
   std::vector groups = storage->get_all<Group>();
   return groups;
@@ -25,6 +47,19 @@ std::optional<Group> GroupDao::getByID(int id_group) {
 }
 
 int GroupDao::save(Group group) {
+
+  int id = group.getIdGroup();
+  if(!existsPerformer(id)){
+    throw IdNotFoundException("The id for a group must be a valid id in performers table.");
+  }
+
+  std::optional<Performer> p = getPerformerByID(id);
+  if(p.value().getIntType() != 2){
+    std::string message = std::format("You must set performer type = 2 in register {}" 
+      "before creating a new register in the Group table.", id);
+    throw std::logic_error(message);
+  }
+
   int id_group = storage->insert(group);
   return id_group;
 }

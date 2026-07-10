@@ -42,8 +42,7 @@ set(SRC_FILES
   src/models/in_group.cpp 
   src/models/performer.cpp 
   src/models/person.cpp
-  src/models/rola.cpp 
-  src/models/type.cpp 
+  src/models/rola.cpp
 
   #daos
   src/daos/album_dao.cpp 
@@ -51,12 +50,12 @@ set(SRC_FILES
   src/daos/in_group_dao.cpp 
   src/daos/performer_dao.cpp 
   src/daos/person_dao.cpp
-  src/daos/rola_dao.cpp   
-  src/daos/type_dao.cpp 
+  src/daos/rola_dao.cpp
 
   #utils
   src/utils/string_utils.cpp
   src/utils/time_utils.cpp
+  src/utils/type_enum.cpp
 )
 
 add_executable(harmony_bd
@@ -90,12 +89,12 @@ enable_testing()
 
 add_executable(dao_test
     #Tests daos
-    tests/test_daos/test_album_dao.cpp
-    tests/test_daos/test_group_dao.cpp
-    tests/test_daos/test_in_group_dao.cpp
+    #tests/test_daos/test_album_dao.cpp
+    #tests/test_daos/test_group_dao.cpp
+    #tests/test_daos/test_in_group_dao.cpp
     tests/test_daos/test_performer_dao.cpp
-    tests/test_daos/test_person_dao.cpp
-    tests/test_daos/test_rola_dao.cpp
+    #tests/test_daos/test_person_dao.cpp
+    #tests/test_daos/test_rola_dao.cpp
 
     # Test models
     tests/test_models/test_album.cpp

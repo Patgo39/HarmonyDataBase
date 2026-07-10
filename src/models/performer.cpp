@@ -1,6 +1,6 @@
 #include "../../include/models/performer.hpp"
 
-Performer::Performer() : id_performer(0), id_type(3), name("Unknown") {}
+Performer::Performer() : id_performer(0), type(Type::UNKNOWN), name("Unknown") {}
 
 int Performer::getIdPerformer() const { return id_performer; }
 
@@ -10,12 +10,24 @@ void Performer::setIdPerformer(int idPerformer_) {
   id_performer = idPerformer_;
 }
 
-int Performer::getIdType() const { return id_type; }
+int Performer::getIntType() const{ return static_cast<int>(type);}
+Type Performer::getType() const {return type;}
+void Performer::setIntType(int type_){
+  if(type_ < 1 || type_ > 3){
+    throw std::invalid_argument("Valid Type values are: 1:PERSON, 2:GROUP, 3:UNKNOWN");
+  }
 
-void Performer::setIdType(int idType_) {
-  if (idType_ <= 0)
-    throw std::invalid_argument("Id can't be zero or negative.");
-  id_type = idType_;
+  switch (type_)
+  {
+  case 1:
+    type = Type::PERSON;
+    break;
+  case 2:
+    type = Type::GROUP;
+    break;
+  default:
+    type = Type::UNKNOWN;
+  }
 }
 
 std::string Performer::getName() const { return name; }

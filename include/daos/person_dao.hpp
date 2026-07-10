@@ -8,13 +8,17 @@
 #include "../exceptions/id_not_found_exception.hpp"
 #include "../models/person.hpp"
 #include "dao_interface.hpp"
+#include <stdexcept>
+#include <memory>
 
 class PersonDao : public DaoInterface<Person> {
   std::shared_ptr<harmony_storage> storage;
 
+  std::optional<Performer> getPerformerByID(int id_performer);
+  bool existsPerformer(int id_performer);
 public:
   PersonDao();
-
+  ~PersonDao() = default;
   std::vector<Person> findAll() override;
   std::optional<Person> getByID(int id_person) override;
   int save(Person person) override;

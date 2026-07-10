@@ -20,4 +20,10 @@ namespace str_utils{
 
     return s.substr(start, end-start+1);
   }
+
+  void convert_string_to_lowercase(std::string &s){
+    std::transform(s.begin(), s.end(), s.begin(), [](unsigned char c){
+      return std::tolower(c);
+    });
+  }
 }

@@ -10,7 +10,6 @@
 #include "../models/performer.hpp"
 #include "../models/person.hpp"
 #include "../models/rola.hpp"
-#include "../models/type.hpp"
 #include <cstring>
 #include <filesystem>
 #include <iostream>
@@ -23,14 +22,17 @@
 #include <unistd.h>
 
 inline auto make_harmony_storage(const std::string &path) {
-  return sqlite_orm::make_storage(
-      "",
-      // Type
+  return sqlite_orm::make_storage("",
+      // Performer
       sqlite_orm::make_table(
-          "types",
-          sqlite_orm::make_column("id_type", &Type::id_type,
+          "performers",
+          sqlite_orm::make_column("id_performer", &Performer::getIdPerformer,
+                                  &Performer::setIdPerformer,
                                   sqlite_orm::primary_key().autoincrement()),
-          sqlite_orm::make_column("description", &Type::description)),
+          sqlite_orm::make_column("id_type", &Performer::getIntType,
+                                  &Performer::setIntType),
+          sqlite_orm::make_column("name", &Performer::getName,
+                                  &Performer::setName)),
       // Albums
       sqlite_orm::make_table(
           "albums",
@@ -45,32 +47,22 @@ inline auto make_harmony_storage(const std::string &path) {
           "groups",
           sqlite_orm::make_column("id_group", &Group::setIdGroup,
                                   &Group::getIdGroup,
-                                  sqlite_orm::primary_key().autoincrement()),
+                                  sqlite_orm::primary_key()),
           sqlite_orm::make_column("name", &Group::getName, &Group::setName),
           sqlite_orm::make_column("start_date", &Group::setStartDate,
                                   &Group::getStartDate),
           sqlite_orm::make_column("end_date", &Group::setEndDate,
-                                  &Group::getEndDate)),
-      // Performer
-      sqlite_orm::make_table(
-          "performers",
-          sqlite_orm::make_column("id_performer", &Performer::getIdPerformer,
-                                  &Performer::setIdPerformer,
-                                  sqlite_orm::primary_key().autoincrement()),
-          sqlite_orm::make_column("id_type", &Performer::getIdType,
-                                  &Performer::setIdType),
-          sqlite_orm::make_column("name", &Performer::getName,
-                                  &Performer::setName),
-          sqlite_orm::foreign_key(&Performer::getIdType)
-              .references(&Type::id_type)
-              .on_delete.restrict_()
-              .on_update.cascade()),
+                                  &Group::getEndDate),
+          sqlite_orm::foreign_key(&Group::getIdGroup)
+            .references(&Performer::getIdPerformer)
+            .on_delete.restrict_()
+            .on_update.cascade()),
       // Person
       sqlite_orm::make_table(
           "persons",
           sqlite_orm::make_column("id_person", &Person::getIdPerson,
                                   &Person::setIdPerson,
-                                  sqlite_orm::primary_key().autoincrement()),
+                                  sqlite_orm::primary_key()),
           sqlite_orm::make_column("stage_name", &Person::getStageName,
                                   &Person::setStageName),
           sqlite_orm::make_column("real_name", &Person::getRealName,
@@ -78,7 +70,11 @@ inline auto make_harmony_storage(const std::string &path) {
           sqlite_orm::make_column("birth_date", &Person::getBirthDate,
                                   &Person::setBirthDate),
           sqlite_orm::make_column("death_date", &Person::getDeathDate,
-                                  &Person::setDeathDate)),
+                                  &Person::setDeathDate),
+          sqlite_orm::foreign_key(&Person::getIdPerson)
+            .references(&Performer::getIdPerformer)
+            .on_delete.restrict_()
+            .on_update.cascade()),
       // In_group
       sqlite_orm::make_table(
           "in_group",

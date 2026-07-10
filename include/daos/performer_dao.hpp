@@ -4,18 +4,21 @@
 // Suprime las advertencias de funciones deprecadas en la biblioteca sqlite_orm
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#include "../db/database_conection_manager.hpp"
 #include "../exceptions/id_not_found_exception.hpp"
+#include "../exceptions/constraint_violation_exception.hpp"
+#include "../db/database_conection_manager.hpp"
 #include "../models/performer.hpp"
-#include "../models/type.hpp"
 #include "dao_interface.hpp"
+#include <stdexcept>
 
 class PerformerDao : public DaoInterface<Performer> {
   std::shared_ptr<harmony_storage> storage;
 
+  bool existsPerson(int id_person);
+  bool existsGroup(int id_group);
 public:
   PerformerDao();
-
+  ~PerformerDao() = default;
   std::vector<Performer> findAll() override;
   std::optional<Performer> getByID(int id_performer) override;
   int save(Performer performer) override;

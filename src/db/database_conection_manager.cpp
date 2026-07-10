@@ -48,16 +48,6 @@ DatabaseConectionManager::~DatabaseConectionManager() {}
 void DatabaseConectionManager::createTables() {
   storage = std::make_shared<harmony_storage>(make_harmony_storage(db_path));
   storage->sync_schema();
-
-  if (create_initial_database) {
-    Type t1(1, "Person");
-    Type t2(2, "Group");
-    Type t3(3, "Unknown");
-
-    storage->insert(t1);
-    storage->insert(t2);
-    storage->insert(t3);
-  }
 }
 
 const std::string DatabaseConectionManager::getDatabasePath() const {

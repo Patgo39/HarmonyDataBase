@@ -2,12 +2,13 @@
 #define PERFORMER_HPP
 
 #include "../utils/string_utils.hpp"
+#include "../utils/type_enum.hpp"
 #include <stdexcept>
 #include <string>
 
 class Performer {
   int id_performer;
-  int id_type;
+  Type type;
   std::string name;
 
 public:
@@ -16,8 +17,10 @@ public:
   int getIdPerformer() const;
   void setIdPerformer(int idPerformer_);
 
-  int getIdType() const;
-  void setIdType(int idType_);
+  int getIntType() const;
+  void setIntType(int type_);
+
+  Type getType() const;
 
   std::string getName() const;
   void setName(const std::string &name_);

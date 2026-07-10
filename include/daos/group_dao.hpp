@@ -8,13 +8,18 @@
 #include "../exceptions/id_not_found_exception.hpp"
 #include "../models/group.hpp"
 #include "dao_interface.hpp"
+#include "performer_dao.hpp"
+#include <stdexcept>
+#include <memory>
 
 class GroupDao : public DaoInterface<Group> {
   std::shared_ptr<harmony_storage> storage;
 
+  std::optional<Performer> getPerformerByID(int id_performer);
+  bool existsPerformer(int id_performer);
 public:
   GroupDao();
-
+  ~GroupDao() = default;
   std::vector<Group> findAll() override;
   std::optional<Group> getByID(int id_group) override;
   int save(Group group) override;

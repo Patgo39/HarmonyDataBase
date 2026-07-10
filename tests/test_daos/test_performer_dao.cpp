@@ -1,4 +1,6 @@
 #include "../../include/daos/performer_dao.hpp"
+#include "../../include/daos/person_dao.hpp"
+#include "../../include/daos/group_dao.hpp"
 #include "../../include/exceptions/id_not_found_exception.hpp"
 #include <gtest/gtest.h>
 #include <memory>
@@ -9,6 +11,8 @@ class TestPerformerDao : public testing::Test {
 
 protected:
   std::unique_ptr<PerformerDao> dao_ptr;
+  std::unique_ptr<PersonDao> person_dao_ptr;
+  std::unique_ptr<GroupDao> group_dao_ptr;
   Performer performer;
   int id_performer = -1;
 
@@ -20,11 +24,27 @@ protected:
     dao_ptr = std::make_unique<PerformerDao>();
     
     performer.setName("Michael Jackson");
-    performer.setIdType(1); // 1 = Person
+    performer.setIntType(1); // 1 = Person
 
     id_performer = dao_ptr->save(performer);
   }
 };
+
+TEST_F(TestPerformerDao, test_save_duplicates){
+  Performer p;
+  p.setIdPerformer(id_performer);
+  int id_p = 0;
+  
+  try{
+    id_p = dao_ptr->save(p);
+  }catch(std::runtime_error){
+    FAIL() <<"An error occurred when inserting a performer with repeated id.";  
+  }
+
+  ASSERT_EQ(2, dao_ptr->findAll().size()) << "Performer dao didn't ignore the id and updated the current object.";
+  ASSERT_NE(id_performer, id_p) <<"The new performer modified the current performer.";
+  dao_ptr->deleteById(id_p);
+}
 
 TEST_F(TestPerformerDao, test_get_by_id) {
   std::optional<Performer> queried_performer = dao_ptr->getByID(id_performer);
@@ -34,7 +54,7 @@ TEST_F(TestPerformerDao, test_get_by_id) {
   if (queried_performer.has_value()) {
     ASSERT_EQ("Michael Jackson", queried_performer.value().getName())
         << "Saved Performer name is not the expected one.";
-    ASSERT_EQ(1, queried_performer.value().getIdType())
+    ASSERT_EQ(1, queried_performer.value().getIntType())
         << "Saved Performer id_type is not the expected one.";
   }
 }
@@ -50,7 +70,7 @@ TEST_F(TestPerformerDao, test_find_all) {
 
 TEST_F(TestPerformerDao, test_update) {
   performer.setName("Daft Punk");
-  performer.setIdType(2); // 2 = Group 
+  performer.setIntType(2); // 2 = Group 
 
   dao_ptr->update(id_performer, performer);
 
@@ -63,7 +83,7 @@ TEST_F(TestPerformerDao, test_update) {
   if (queried_performer.has_value()) {
     ASSERT_EQ("Daft Punk", queried_performer.value().getName())
         << "Updated Performer name is not the expected one.";
-    ASSERT_EQ(2, queried_performer.value().getIdType())
+    ASSERT_EQ(2, queried_performer.value().getIntType())
         << "Updated Performer id_type is not the expected one.";
   }
 }
