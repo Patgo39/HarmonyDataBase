@@ -6,6 +6,8 @@
 
 #include "../db/database_conection_manager.hpp"
 #include "../exceptions/id_not_found_exception.hpp"
+#include "../exceptions/constraint_violation_exception.hpp"
+#include "../exceptions/primary_key_violation_exception.hpp"
 #include "../models/person.hpp"
 #include "dao_interface.hpp"
 #include <stdexcept>

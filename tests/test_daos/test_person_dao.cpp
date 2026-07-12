@@ -1,4 +1,5 @@
 #include "../../include/daos/person_dao.hpp"
+#include "../../include/daos/performer_dao.hpp"
 #include "../../include/exceptions/id_not_found_exception.hpp"
 #include <gtest/gtest.h>
 #include <memory>
@@ -9,8 +10,11 @@ class TestPersonDao : public testing::Test {
 
 protected:
   std::unique_ptr<PersonDao> dao_ptr;
+  std::unique_ptr<PerformerDao> performer_dao_ptr;
   Person person;
+  Performer p;
   int id_person = -1;
+  int id_performer = -1;
 
   void SetUp() override {
     DatabaseConectionManager &db = DatabaseConectionManager::getInstance();
@@ -18,7 +22,13 @@ protected:
     db.createAndStartDatabase();
 
     dao_ptr = std::make_unique<PersonDao>();
-    
+    performer_dao_ptr = std::make_unique<PerformerDao>();
+
+    p.setName("Dio");
+    p.setIntType(1);
+    id_performer = performer_dao_ptr->save(p);
+
+    person.setIdPerson(id_performer);
     person.setStageName("Dio");
     person.setRealName("Ronnie James Padavona");
     person.setBirthDate("1942-07-10");
@@ -26,6 +36,47 @@ protected:
     id_person = dao_ptr->save(person);
   }
 };
+
+TEST_F(TestPersonDao, test_save_person){
+
+  try{
+    dao_ptr->save(person);
+    FAIL() <<"Person Dao must throw a PrimaryKeyViolationException.";
+  }catch(PrimaryKeyViolationException){}
+  
+  Performer test_performer;
+  test_performer.setName("Performer_Test");
+  test_performer.setIntType(3);
+  id_performer = performer_dao_ptr->save(test_performer);
+
+  Person test_person;
+  test_person.setStageName("Stage_Name");
+  test_person.setRealName("Real_Name");
+  test_person.setIdPerson(id_performer + 1);
+
+  try{
+    dao_ptr->save(test_person);
+    FAIL()<<"Person Dao must throw an IdNotFoundException when id_person does not exists in Performer's table.";
+  }catch(IdNotFoundException){}
+
+  test_person.setIdPerson(id_performer);
+
+  try{
+    dao_ptr->save(test_person);
+    FAIL()<<"Person Dao must throw an ConstraintViolationException when performer in Performer table has not type = 1.";
+  }catch(ConstraintViolationException){}
+
+  test_performer.setIntType(1);
+  performer_dao_ptr->update(id_performer, test_performer);
+
+  try{
+    id_person = dao_ptr->save(test_person);
+  }catch(std::runtime_error){
+    FAIL()<<"Person Dao must not throw an exception at this stage.";
+  }
+
+  ASSERT_EQ(id_performer, id_person) << "id_performer and id_person are not equal.";
+}
 
 TEST_F(TestPersonDao, test_get_by_id) {
   std::optional<Person> queried_person = dao_ptr->getByID(id_person);

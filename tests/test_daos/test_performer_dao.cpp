@@ -69,10 +69,20 @@ TEST_F(TestPerformerDao, test_find_all) {
 }
 
 TEST_F(TestPerformerDao, test_update) {
-  performer.setName("Daft Punk");
-  performer.setIntType(2); // 2 = Group 
 
-  dao_ptr->update(id_performer, performer);
+  performer.setName("Daft Punk");
+  performer.setIntType(2);
+
+  try{
+    dao_ptr->update(id_performer+1, performer);
+    FAIL() <<"Performer dao must throw an IdNotFoundException when trying to update a non-existen id.";
+  }catch(IdNotFoundException){}
+
+  try{
+    dao_ptr->update(id_performer, performer);
+  }catch(std::runtime_error){
+    FAIL() <<"Performer dao mustn't throw an exception when updating.";
+  }
 
   std::optional<Performer> queried_performer = dao_ptr->getByID(id_performer);
 
@@ -85,6 +95,57 @@ TEST_F(TestPerformerDao, test_update) {
         << "Updated Performer name is not the expected one.";
     ASSERT_EQ(2, queried_performer.value().getIntType())
         << "Updated Performer id_type is not the expected one.";
+  }
+
+}
+
+TEST_F(TestPerformerDao, test_update_type_group_when_is_person){
+  Group g;
+  g.setIdGroup(id_performer);
+  g.setName("Daft Punk");
+  g.setStartDate("1993-03-15");
+
+  group_dao_ptr->save(g);
+
+  performer.setName("Michael Jackson");
+  performer.setIntType(1);
+
+  try{
+    dao_ptr->update(id_performer, performer);
+    FAIL() <<"Performer dao must throw a ConstraintViolationException when trying to update the performer's type id"
+    " and there is still an object related in Group table.";
+  }catch(ConstraintViolationException){}
+
+  group_dao_ptr->deleteById(id_performer);
+
+  try{
+    dao_ptr->update(id_performer, performer);
+  }catch(ConstraintViolationException){
+    FAIL() <<"Performers dao mustn't throw a ConstraintViolationException if there is no object in Person table.";
+  }
+}
+
+TEST_F(TestPerformerDao, test_update_type_person_when_is_group){
+  Person p;
+  p.setIdPerson(id_performer);
+  p.setRealName("Michael Joseph Jackson");
+  person_dao_ptr->save(p);
+
+  performer.setName("Daft Punk");
+  performer.setIntType(2); // 2 = Group 
+
+  try{
+    dao_ptr->update(id_performer, performer);
+    FAIL() <<"Performer dao must throw a ConstraintViolationException when trying to update the performer's type id"
+    " and there is still an object related in Person table.";
+  }catch(ConstraintViolationException){}
+
+  person_dao_ptr->deleteById(id_performer);
+
+  try{
+    dao_ptr->update(id_performer, performer);
+  }catch(ConstraintViolationException){
+    FAIL() <<"Performers dao mustn't throw a ConstraintViolationException if there is no object in Person table.";
   }
 }
 

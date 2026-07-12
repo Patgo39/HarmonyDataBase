@@ -92,8 +92,8 @@ add_executable(dao_test
     #tests/test_daos/test_album_dao.cpp
     #tests/test_daos/test_group_dao.cpp
     #tests/test_daos/test_in_group_dao.cpp
-    tests/test_daos/test_performer_dao.cpp
-    #tests/test_daos/test_person_dao.cpp
+    #tests/test_daos/test_performer_dao.cpp
+    tests/test_daos/test_person_dao.cpp
     #tests/test_daos/test_rola_dao.cpp
 
     # Test models

@@ -54,11 +54,16 @@ int PersonDao::save(Person person) {
     throw IdNotFoundException("The id for a person must be a valid id in performers table.");
   }
 
+  if(exists(person.getIdPerson())){
+    std::string msg = std::format("There is an existing person with id = {}", person.getIdPerson());
+    throw PrimaryKeyViolationException(msg);
+  }
+
   std::optional<Performer> p = getPerformerByID(id);
   if(p.value().getIntType() != 1){
     std::string message = std::format("You must set performer type = 1 in register {}" 
       "before creating a new register in the Person table.", id);
-    throw std::logic_error(message);
+    throw ConstraintViolationException(message);
   }
 
   int id_person = storage->insert(person);
