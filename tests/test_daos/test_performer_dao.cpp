@@ -22,6 +22,8 @@ protected:
     db.createAndStartDatabase();
 
     dao_ptr = std::make_unique<PerformerDao>();
+    person_dao_ptr = std::make_unique<PersonDao>();
+    group_dao_ptr = std::make_unique<GroupDao>();
     
     performer.setName("Michael Jackson");
     performer.setIntType(1); // 1 = Person
@@ -100,52 +102,57 @@ TEST_F(TestPerformerDao, test_update) {
 }
 
 TEST_F(TestPerformerDao, test_update_type_group_when_is_person){
-  Group g;
-  g.setIdGroup(id_performer);
-  g.setName("Daft Punk");
-  g.setStartDate("1993-03-15");
+  Person p;
+  p.setIdPerson(id_performer);
+  p.setStageName("Michael Jackson");
+  p.setRealName("Michael Joseph Jackson");
+  int test_id_person = person_dao_ptr->save(p);
 
-  group_dao_ptr->save(g);
-
-  performer.setName("Michael Jackson");
-  performer.setIntType(1);
+  performer.setName("Queen");
+  performer.setIntType(2);
 
   try{
     dao_ptr->update(id_performer, performer);
     FAIL() <<"Performer dao must throw a ConstraintViolationException when trying to update the performer's type id"
-    " and there is still an object related in Group table.";
+    " and there is still an object related in Person's table.";
   }catch(ConstraintViolationException){}
 
-  group_dao_ptr->deleteById(id_performer);
+  person_dao_ptr->deleteById(test_id_person);
 
   try{
     dao_ptr->update(id_performer, performer);
-  }catch(ConstraintViolationException){
-    FAIL() <<"Performers dao mustn't throw a ConstraintViolationException if there is no object in Person table.";
+  }catch(std::runtime_error){
+    FAIL() <<"Performers dao mustn't throw an exception at this stage.";
   }
 }
 
 TEST_F(TestPerformerDao, test_update_type_person_when_is_group){
-  Person p;
-  p.setIdPerson(id_performer);
-  p.setRealName("Michael Joseph Jackson");
-  person_dao_ptr->save(p);
 
   performer.setName("Daft Punk");
-  performer.setIntType(2); // 2 = Group 
+  performer.setIntType(2);
+  dao_ptr->update(id_performer, performer);
+
+  Group g;
+  g.setIdGroup(id_performer);
+  g.setName("Daft Punk");
+  g.setStartDate("1993-03-15");
+  int test_id_group = group_dao_ptr->save(g);
+
+  performer.setName("Michael Jackson");
+  performer.setIntType(1); 
 
   try{
     dao_ptr->update(id_performer, performer);
     FAIL() <<"Performer dao must throw a ConstraintViolationException when trying to update the performer's type id"
-    " and there is still an object related in Person table.";
+    " and there is still an object related in Group's table.";
   }catch(ConstraintViolationException){}
 
-  person_dao_ptr->deleteById(id_performer);
+  group_dao_ptr->deleteById(test_id_group);
 
   try{
     dao_ptr->update(id_performer, performer);
-  }catch(ConstraintViolationException){
-    FAIL() <<"Performers dao mustn't throw a ConstraintViolationException if there is no object in Person table.";
+  }catch(std::runtime_error){
+    FAIL() <<"Performers dao mustn't throw an exception at this stage.";
   }
 }
 

@@ -69,11 +69,11 @@ void PerformerDao::update(int id_performer, Performer performer) {
 
   if(existsPerson(id_performer) && performer.getIntType() != 1){
     throw ConstraintViolationException("Error: Action non valid. You must delete the register in"
-      "Person table before modifying performer's type value.");
+      "Person's table before modifying performer's type value.");
   }
   if(existsGroup(id_performer) && performer.getIntType() != 2){
     throw ConstraintViolationException("Error: Action non valid. You must delete the register in"
-      "Group table before modifying performer's type value.");
+      "Group's table before modifying performer's type value.");
   }
 
   performer.setIdPerformer(id_performer);
