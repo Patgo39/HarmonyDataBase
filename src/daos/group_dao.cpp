@@ -47,22 +47,21 @@ std::optional<Group> GroupDao::getByID(int id_group) {
 }
 
 int GroupDao::save(Group group) {
-
   int id = group.getIdGroup();
   if(!existsPerformer(id)){
     throw IdNotFoundException("The id for a group must be a valid id in performers table.");
   }
 
   if(exists(id)){
-    std::string msg = std::format("There is an existing person with id = {}", id);
+    std::string msg = std::format("There is an existing group with id = {}", id);
     throw PrimaryKeyViolationException(msg);
   }
 
   std::optional<Performer> p = getPerformerByID(id);
   if(p.value().getIntType() != 2){
     std::string message = std::format("You must set performer type = 2 in register {}" 
-      "before creating a new register in the Group table.", id);
-    throw std::logic_error(message);
+      " before creating a new register in the Group table.", id);
+    throw ConstraintViolationException(message);
   }
 
   int id_group = storage->insert(group);
