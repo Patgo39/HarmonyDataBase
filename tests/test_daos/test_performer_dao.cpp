@@ -177,6 +177,57 @@ TEST_F(TestPerformerDao, test_delete) {
     << "Performer was not correctly deleted.";
 }
 
+TEST_F(TestPerformerDao, test_delete_performer_when_is_person) {
+  Person p;
+  p.setIdPerson(id_performer);
+  p.setStageName("Michael Jackson");
+  p.setRealName("Michael Joseph Jackson");
+  int test_id_person = person_dao_ptr->save(p);
+
+  try {
+    dao_ptr->deleteById(id_performer);
+    FAIL() << "Performer dao must throw a ConstraintViolationException when trying to delete a performer"
+              " while there is still an object related in Person's table.";
+  } catch (const ConstraintViolationException&) {}
+
+  person_dao_ptr->deleteById(test_id_person);
+
+  try {
+    dao_ptr->deleteById(id_performer);
+  } catch (const std::runtime_error&) {
+    FAIL() << "Performer dao mustn't throw an exception at this stage after deleting the related Person.";
+  }
+  ASSERT_FALSE(dao_ptr->exists(id_performer)) << "Performer was not correctly deleted.";
+}
+
+TEST_F(TestPerformerDao, test_delete_performer_when_is_group) {
+  performer.setName("Daft Punk");
+  performer.setIntType(2);
+  dao_ptr->update(id_performer, performer);
+
+  Group g;
+  g.setIdGroup(id_performer);
+  g.setName("Daft Punk");
+  g.setStartDate("1993-03-15");
+  int test_id_group = group_dao_ptr->save(g);
+
+  try {
+    dao_ptr->deleteById(id_performer);
+    FAIL() << "Performer dao must throw a ConstraintViolationException when trying to delete a performer"
+              " while there is still an object related in Group's table.";
+  } catch (const ConstraintViolationException&) {}
+
+  group_dao_ptr->deleteById(test_id_group);
+
+  try {
+    dao_ptr->deleteById(id_performer);
+  } catch (const std::runtime_error&) {
+    FAIL() << "Performer dao mustn't throw an exception at this stage after deleting the related Group.";
+  }
+
+  ASSERT_FALSE(dao_ptr->exists(id_performer)) << "Performer was not correctly deleted.";
+}
+
 TEST_F(TestPerformerDao, test_update_non_existent) {
   Performer fake_performer;
   fake_performer.setName("Ghost");

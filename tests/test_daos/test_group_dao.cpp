@@ -63,7 +63,6 @@ TEST_F(TestGroupDao, test_save_group) {
     FAIL() << "Group Dao must throw a ConstraintViolationException when performer in Performer table has not type = 2.";
   } catch (const ConstraintViolationException&) {}
 
-  // Corregir el tipo de performer a 2 (Group) para permitir el flujo exitoso
   test_performer.setIntType(2);
   performer_dao_ptr->update(id_performer, test_performer);
 
