@@ -53,6 +53,11 @@ int GroupDao::save(Group group) {
     throw IdNotFoundException("The id for a group must be a valid id in performers table.");
   }
 
+  if(exists(id)){
+    std::string msg = std::format("There is an existing person with id = {}", id);
+    throw PrimaryKeyViolationException(msg);
+  }
+
   std::optional<Performer> p = getPerformerByID(id);
   if(p.value().getIntType() != 2){
     std::string message = std::format("You must set performer type = 2 in register {}" 

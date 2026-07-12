@@ -6,7 +6,6 @@ PersonDao::PersonDao() {
   storage = db.getHarmonyStorage();
 }
 
-
 std::optional<Performer> PersonDao::getPerformerByID(int id_performer){
   std::vector<Performer> performers =
       storage->get_all<Performer>(sqlite_orm::where(
@@ -54,8 +53,8 @@ int PersonDao::save(Person person) {
     throw IdNotFoundException("The id for a person must be a valid id in performers table.");
   }
 
-  if(exists(person.getIdPerson())){
-    std::string msg = std::format("There is an existing person with id = {}", person.getIdPerson());
+  if(exists(id)){
+    std::string msg = std::format("There is an existing person with id = {}", id);
     throw PrimaryKeyViolationException(msg);
   }
 
