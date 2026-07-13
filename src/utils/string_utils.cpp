@@ -35,12 +35,12 @@ namespace str_utils{
           if ((unsigned char)s[i] == 0xC3 && i + 1 < s.size()) {
               unsigned char next = (unsigned char)s[i + 1];
               switch (next) {
-                  case 0xA1: case 0x81: result += 'a'; i++; break; // á, Á
-                  case 0xA9: case 0x89: result += 'e'; i++; break; // é, É
-                  case 0xAD: case 0x8D: result += 'i'; i++; break; // í, Í
-                  case 0xB3: case 0x93: result += 'o'; i++; break; // ó, Ó
-                  case 0xBA: case 0x9A: result += 'u'; i++; break; // ú, Ú
-                  case 0xBC: case 0x9C: result += 'u'; i++; break; // ü, Ü
+                  case 0xA1: case 0x81: result += 'a'; i++; break; 
+                  case 0xA9: case 0x89: result += 'e'; i++; break; 
+                  case 0xAD: case 0x8D: result += 'i'; i++; break; 
+                  case 0xB3: case 0x93: result += 'o'; i++; break; 
+                  case 0xBA: case 0x9A: result += 'u'; i++; break; 
+                  case 0xBC: case 0x9C: result += 'u'; i++; break; 
                   default:
                       result += s[i];
                       break;
@@ -61,9 +61,26 @@ namespace str_utils{
   }
 
   std::string apply_name_format_to_string(const std::string &s){
-    std::string s2 = delete_extreme_whitespaces(s);
-    convert_string_to_lowercase(s2);
+    // 1. Limpieza inicial de acentos y espacios
+    std::string s2 = remove_spanish_accents(s);
+    s2 = delete_extreme_whitespaces(s2);
     collapse_internal_whitespaces(s2);
+
+    bool new_word = true;
+    size_t length = s2.size(); 
+    
+    for (size_t i = 0; i < length; ++i) {
+        if (std::isspace(static_cast<unsigned char>(s2[i]))) {
+            new_word = true;
+        } else {
+            if (new_word) {
+                s2[i] = std::toupper(static_cast<unsigned char>(s2[i]));
+                new_word = false;
+            } else {
+                s2[i] = std::tolower(static_cast<unsigned char>(s2[i]));
+            }
+        }
+    }
 
     return s2;
   }
