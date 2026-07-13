@@ -40,9 +40,9 @@ TEST(TestAlbum, test_set_name){
   ASSERT_EQ(album.getName(), "Unknown") 
     <<"Name can't be empty, it should be 'Unknown' by default.";
 
-  album.setName(" \t\n\ra            ");
-  ASSERT_EQ(album.getName(), "a") 
-    <<"Extreme spaces were not deleted.";
+  album.setName(" \t\n\rAbBeY    ROád   ");
+  ASSERT_EQ(album.getName(), "Abbey Road") 
+    <<"Album's name was not correctly normalized.";
 }
 
 TEST(TestAlbum, test_set_path){

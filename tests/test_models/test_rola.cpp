@@ -62,8 +62,8 @@ TEST(TestRola, test_set_title) {
   rola.setTitle("");
   ASSERT_EQ(rola.getTitle(), "Unknown") << "Title can't be empty, it should be 'Unknown'.";
 
-  rola.setTitle(" \t\n\r Master of Puppets   ");
-  ASSERT_EQ(rola.getTitle(), "Master of Puppets") << "Extreme spaces or tabs were not deleted from title.";
+  rola.setTitle(" \t\n\r mAsTer Óf pUppets   ");
+  ASSERT_EQ(rola.getTitle(), "Master Of Puppets") << "Rola's name was not correctly normalized.";
 }
 
 TEST(TestRola, test_set_path) {

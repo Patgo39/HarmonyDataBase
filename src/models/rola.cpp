@@ -83,6 +83,6 @@ void Rola::setGenre(const std::string &genre_) {
   if (str_utils::is_white_spaces(genre_)) {
     genre = "Unknown";
   } else {
-    genre = str_utils::delete_extreme_whitespaces(genre_);
+    genre = str_utils::apply_name_format_to_string(genre_);
   }
 }

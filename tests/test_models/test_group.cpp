@@ -42,9 +42,9 @@ TEST(TestGroup, test_set_name){
   ASSERT_EQ(group.getName(), "Unknown") 
     <<"Name can't be empty, it should be 'Unknown' by default.";
 
-  group.setName(" \t\n\ra            ");
-  ASSERT_EQ(group.getName(), "a") 
-    <<"Extreme spaces were not deleted.";
+  group.setName(" \t\n\rThÉ     beAtlÉS       ");
+  ASSERT_EQ(group.getName(), "The Beatles") 
+    <<"Group's name was not correctly normalized.";
 }
 
 TEST(TestGroup, test_start_date){
