@@ -27,7 +27,17 @@ namespace str_utils{
     });
   }
 
+  void collapse_internal_whitespaces(std::string &s) {
+      auto new_end = std::unique(s.begin(), s.end(), [](char a, char b) {
+          return std::isspace(static_cast<unsigned char>(a)) && 
+                 std::isspace(static_cast<unsigned char>(b));
+      });
+      s.erase(new_end, s.end());
+  }
+
   std::string clean_string_format(const std::string &s){
-    
+    std::string s2 = delete_extreme_whitespaces(s);
+    convert_string_to_lowercase(s2);
+
   }
 }
