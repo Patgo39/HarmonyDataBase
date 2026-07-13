@@ -65,7 +65,7 @@ TEST_F(TestAlbumDao, test_update){
   ASSERT_EQ(1, dao_ptr->findAll().size()) << "The albums was not updated; instead a new album was inserted.";
 
   if (queried_album.has_value()) {
-    ASSERT_EQ("The dark side of the moon", queried_album.value().getName())
+    ASSERT_EQ("The Dark Side Of The Moon", queried_album.value().getName())
         << "Updated Album name is not the expected one.";
     ASSERT_EQ(":Memory:/Path/2", queried_album.value().getPath())
         << "Updated Album path is not the expected one.";
