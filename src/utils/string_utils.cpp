@@ -27,6 +27,31 @@ namespace str_utils{
     });
   }
 
+  std::string remove_spanish_accents(const std::string &s) {
+      std::string result;
+      result.reserve(s.size());
+      
+      for (size_t i = 0; i < s.size(); ++i) {
+          if ((unsigned char)s[i] == 0xC3 && i + 1 < s.size()) {
+              unsigned char next = (unsigned char)s[i + 1];
+              switch (next) {
+                  case 0xA1: case 0x81: result += 'a'; i++; break; // á, Á
+                  case 0xA9: case 0x89: result += 'e'; i++; break; // é, É
+                  case 0xAD: case 0x8D: result += 'i'; i++; break; // í, Í
+                  case 0xB3: case 0x93: result += 'o'; i++; break; // ó, Ó
+                  case 0xBA: case 0x9A: result += 'u'; i++; break; // ú, Ú
+                  case 0xBC: case 0x9C: result += 'u'; i++; break; // ü, Ü
+                  default:
+                      result += s[i];
+                      break;
+              }
+          } else {
+              result += s[i];
+          }
+      }
+      return result;
+  }
+
   void collapse_internal_whitespaces(std::string &s) {
       auto new_end = std::unique(s.begin(), s.end(), [](char a, char b) {
           return std::isspace(static_cast<unsigned char>(a)) && 
