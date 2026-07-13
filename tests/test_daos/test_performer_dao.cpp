@@ -37,15 +37,12 @@ TEST_F(TestPerformerDao, test_save_duplicates){
   p.setIdPerformer(id_performer);
   int id_p = 0;
   
-  try{
-    id_p = dao_ptr->save(p);
-  }catch(std::runtime_error){
-    FAIL() <<"An error occurred when inserting a performer with repeated id.";  
-  }
 
-  ASSERT_EQ(2, dao_ptr->findAll().size()) << "Performer dao didn't ignore the id and updated the current object.";
-  ASSERT_NE(id_performer, id_p) <<"The new performer modified the current performer.";
-  dao_ptr->deleteById(id_p);
+  p.setName(" mIcHaÉl jAckSon  ");
+  id_p = dao_ptr->save(p);
+
+  ASSERT_EQ(1, dao_ptr->findAll()) <<"PerformerDao inserted another registed instead of ignoring the repeated one.";
+  ASSERT_EQ(id_performer, id_p) <<"id_performer and repeated_id are not equal.";
 }
 
 TEST_F(TestPerformerDao, test_get_by_id) {
