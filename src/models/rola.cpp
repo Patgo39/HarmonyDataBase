@@ -61,7 +61,7 @@ void Rola::setTitle(const std::string &title_) {
   if (str_utils::is_white_spaces(title_)) {
     title = "Unknown";
   } else {
-    title = str_utils::delete_extreme_whitespaces(title_);
+    title = str_utils::apply_name_format_to_string(title_);
   }
 }
 

@@ -41,10 +41,9 @@ std::optional<Performer> PerformerDao::getByID(int id_performer) {
 }
 
 int PerformerDao::save(Performer performer) {
-  std::string performer_name = str_utils::clean_string_format(performer.getName());
-  using namespace sqlite_orm;
+  /**using namespace sqlite_orm;
   auto rows = storage->select(columns(&Performer::getIdPerformer, &Performer::getName), 
-              );
+              );*/
 
   int id_performer = storage->insert(performer);
   return id_performer;

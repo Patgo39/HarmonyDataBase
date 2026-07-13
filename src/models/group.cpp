@@ -21,7 +21,7 @@ void Group::setName(const std::string &name_) {
   if (str_utils::is_white_spaces(name_)) {
     name = "Unknown";
   } else {
-    name = str_utils::delete_extreme_whitespaces(name_);
+    name = str_utils::apply_name_format_to_string(name_);
   }
 }
 

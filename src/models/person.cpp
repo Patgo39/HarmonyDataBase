@@ -25,7 +25,7 @@ void Person::setStageName(const std::string &stageName_) {
   if (str_utils::is_white_spaces(stageName_)) {
     stage_name = "Unknown";
   } else {
-    stage_name = str_utils::delete_extreme_whitespaces(stageName_);
+    stage_name = str_utils::apply_name_format_to_string(stageName_);
   }
 }
 

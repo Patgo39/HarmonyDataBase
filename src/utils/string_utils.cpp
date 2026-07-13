@@ -61,7 +61,6 @@ namespace str_utils{
   }
 
   std::string apply_name_format_to_string(const std::string &s){
-    // 1. Limpieza inicial de acentos y espacios
     std::string s2 = remove_spanish_accents(s);
     s2 = delete_extreme_whitespaces(s2);
     collapse_internal_whitespaces(s2);
