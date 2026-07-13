@@ -64,7 +64,7 @@ TEST(TestPerformer, test_set_name) {
   ASSERT_EQ(performer.getName(), "Unknown") 
     << "Name can't be empty, it should be 'Unknown' by default.";
 
-  performer.setName(" \t\n\rMicHaeL jacksón            ");
+  performer.setName(" \t\n\rMicHaeL jÁcKsón            ");
   ASSERT_EQ(performer.getName(), "Michael Jackson") 
-    << "Extreme spaces or tabs were not deleted correctly.";
+    << "Performer's name was not correctly normalized.";
 }
