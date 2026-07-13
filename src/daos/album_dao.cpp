@@ -29,6 +29,10 @@ int AlbumDao::save(Album album) {
       &Album::getName,
       album.getName()
     )));
+  
+  if(rows.size() == 1){
+    return rows[0].getIdAlbum();
+  }
 
   int id_album = storage->insert(album);
   return id_album;

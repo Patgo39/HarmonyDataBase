@@ -26,6 +26,16 @@ protected:
   }
 };
 
+TEST_F(TestAlbumDao, test_save_duplicates){
+  Album a;
+  a.setName("   \t   thRíLler  \n");
+  int id_a = 0;
+  id_a = dao_ptr->save(a);
+
+  ASSERT_EQ(1, dao_ptr->findAll().size()) <<"AlbumDao inserted another registed instead of ignoring the repeated one.";
+  ASSERT_EQ(id_album, id_a) <<"id_album and id_a are not equal.";
+}
+
 TEST_F(TestAlbumDao, test_get_by_id) {
   std::optional<Album> queried_album = dao_ptr->getByID(id_album);
 
