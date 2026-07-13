@@ -23,6 +23,13 @@ std::optional<Album> AlbumDao::getByID(int _id_album) {
 }
 
 int AlbumDao::save(Album album) {
+  using namespace sqlite_orm;
+  auto rows = storage->get_all<Album>(
+    where(eq(
+      &Album::getName,
+      album.getName()
+    )));
+
   int id_album = storage->insert(album);
   return id_album;
 }

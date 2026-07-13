@@ -37,11 +37,10 @@ TEST_F(TestPerformerDao, test_save_duplicates){
   p.setIdPerformer(id_performer);
   int id_p = 0;
   
-
   p.setName(" mIcHaÉl jAckSon  ");
   id_p = dao_ptr->save(p);
 
-  ASSERT_EQ(1, dao_ptr->findAll()) <<"PerformerDao inserted another registed instead of ignoring the repeated one.";
+  ASSERT_EQ(1, dao_ptr->findAll().size()) <<"PerformerDao inserted another registed instead of ignoring the repeated one.";
   ASSERT_EQ(id_performer, id_p) <<"id_performer and repeated_id are not equal.";
 }
 
