@@ -26,4 +26,8 @@ namespace str_utils{
       return std::tolower(c);
     });
   }
+
+  std::string clean_string_format(const std::string &s){
+    
+  }
 }

@@ -41,6 +41,7 @@ std::optional<Performer> PerformerDao::getByID(int id_performer) {
 }
 
 int PerformerDao::save(Performer performer) {
+
   int id_performer = storage->insert(performer);
   return id_performer;
 }
