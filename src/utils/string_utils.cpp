@@ -38,6 +38,8 @@ namespace str_utils{
   std::string clean_string_format(const std::string &s){
     std::string s2 = delete_extreme_whitespaces(s);
     convert_string_to_lowercase(s2);
+    collapse_internal_whitespaces(s2);
 
+    return s2;
   }
 }
